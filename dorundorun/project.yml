@@ -1,0 +1,26 @@
+name: dorundorun
+options:
+  bundleIdPrefix: com.doruning
+developmentRegion: ko
+supportedDestinations: [iOS]
+configs:
+  dev: debug
+  prod: release
+packages:
+  Alamofire:
+    url: https://github.com/Alamofire/Alamofire.git
+    from: 5.10.2
+targets:
+  dorundorun:
+    type: application
+    platform: iOS
+    deploymentTarget: "16.0"
+    sources: [dorundorun]
+    info:
+      path: dorundorun/App/Info.plist
+    settings:
+      base:
+        TARGETED_DEVICE_FAMILY: "1"
+        CODE_SIGN_IDENTITY: ""
+        CODE_SIGNING_REQUIRED: NO
+        CODE_SIGNING_ALLOWED: NO
