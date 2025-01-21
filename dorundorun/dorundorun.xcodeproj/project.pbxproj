@@ -20,6 +20,7 @@
 		BF30CF1C44D18C9FEE805015 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 09206D8674220F0E8D6B2F4F /* Pretendard-Medium.otf */; };
 		D4072C9F4A8973A5A50367E1 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 19146512AE407CF2888E4010 /* Pretendard-Regular.otf */; };
 		D7907979253E279541E78415 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D0A0A7E2B1973475B589A22 /* Preview Assets.xcassets */; };
+		DD8436C8289947BF9C6E2F8D /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C26CF28BE59AE8EABB42EA5 /* Colors.xcassets */; };
 		F4D2913937ADB672F9E299A4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4217CBD1D1E22A7F6731360F /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,7 @@
 		19146512AE407CF2888E4010 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		1D0A0A7E2B1973475B589A22 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		27D368AA7297B221F6A33C28 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
+		3C26CF28BE59AE8EABB42EA5 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		3DCC546CFCB4AC577F51F331 /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
 		4217CBD1D1E22A7F6731360F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8FF6FC591F024CECD5086E41 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 		8DA6D64446C4CEBF4D842187 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3C26CF28BE59AE8EABB42EA5 /* Colors.xcassets */,
 				27D368AA7297B221F6A33C28 /* Icons.xcassets */,
 				D01B6B8AD3CE2E7009E53010 /* Fonts */,
 			);
@@ -177,6 +180,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14D7E642E63946C27FA539DE /* Assets.xcassets in Resources */,
+				DD8436C8289947BF9C6E2F8D /* Colors.xcassets in Resources */,
 				1E4C46A4EB5B5B3ACBC9FF4F /* Icons.xcassets in Resources */,
 				169A69C646622837132A61DF /* Pretendard-Black.otf in Resources */,
 				646CCBAAD0BEF89C9AEC2331 /* Pretendard-Bold.otf in Resources */,
