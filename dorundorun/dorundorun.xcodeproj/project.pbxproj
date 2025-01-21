@@ -19,6 +19,7 @@
 		AC4B7064FF253A4AE4FB9E93 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3FB00500D04150D925C0A6F4 /* Pretendard-Regular.otf */; };
 		D7907979253E279541E78415 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D0A0A7E2B1973475B589A22 /* Preview Assets.xcassets */; };
 		E0551A8EFED2ABF50016CEE5 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1092B57F175DF2EC0F756430 /* Icons.xcassets */; };
+		E27BA6E02D3FB0F6007B54B0 /* Jalnan2.otf in Resources */ = {isa = PBXBuildFile; fileRef = E27BA6DF2D3FB0F6007B54B0 /* Jalnan2.otf */; };
 		E7BD6D2B10F0319465ECFA40 /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 77BA639E0011A273D9CCDA17 /* Pretendard-ExtraBold.otf */; };
 		F4D2913937ADB672F9E299A4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4217CBD1D1E22A7F6731360F /* ContentView.swift */; };
 		F910259FA69F848F125184A6 /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = D593C384C34403D08F9DF6F2 /* Pretendard-Thin.otf */; };
@@ -41,6 +42,7 @@
 		AA95E43B40E215CF1F8B9304 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B4E4FD66878BCDD0D1E282B2 /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
 		D593C384C34403D08F9DF6F2 /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
+		E27BA6DF2D3FB0F6007B54B0 /* Jalnan2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Jalnan2.otf; sourceTree = "<group>"; };
 		F690F5DE8513265C9CE21416 /* dorundorunApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dorundorunApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,6 +105,7 @@
 		849AE2F6A71AFAA45C6A8BCA /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				E27BA6DC2D3FB0B5007B54B0 /* Jalnan2 */,
 				E27BA6DB2D3FB087007B54B0 /* Pretendard */,
 			);
 			path = Fonts;
@@ -130,6 +133,14 @@
 				D593C384C34403D08F9DF6F2 /* Pretendard-Thin.otf */,
 			);
 			path = Pretendard;
+			sourceTree = "<group>";
+		};
+		E27BA6DC2D3FB0B5007B54B0 /* Jalnan2 */ = {
+			isa = PBXGroup;
+			children = (
+				E27BA6DF2D3FB0F6007B54B0 /* Jalnan2.otf */,
+			);
+			path = Jalnan2;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +204,7 @@
 				E7BD6D2B10F0319465ECFA40 /* Pretendard-ExtraBold.otf in Resources */,
 				7804B7E78ABADB9B8E808E19 /* Pretendard-ExtraLight.otf in Resources */,
 				48967D1F4ECBB1551E7590D8 /* Pretendard-Light.otf in Resources */,
+				E27BA6E02D3FB0F6007B54B0 /* Jalnan2.otf in Resources */,
 				863036F891814ADD79543A39 /* Pretendard-Medium.otf in Resources */,
 				AC4B7064FF253A4AE4FB9E93 /* Pretendard-Regular.otf in Resources */,
 				7ED3F8F0C2A527633323714E /* Pretendard-SemiBold.otf in Resources */,

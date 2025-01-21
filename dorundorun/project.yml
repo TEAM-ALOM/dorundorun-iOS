@@ -29,6 +29,7 @@ targets:
           - Pretendard-Regular.otf
           - Pretendard-SemiBold.otf
           - Pretendard-Thin.otf
+          - Jalnan2.otf
     settings:
       base:
         TARGETED_DEVICE_FAMILY: "1"
