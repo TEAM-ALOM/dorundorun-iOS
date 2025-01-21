@@ -103,15 +103,7 @@
 		849AE2F6A71AFAA45C6A8BCA /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				B4E4FD66878BCDD0D1E282B2 /* Pretendard-Black.otf */,
-				1C9BF0B471C0D91A7651182F /* Pretendard-Bold.otf */,
-				77BA639E0011A273D9CCDA17 /* Pretendard-ExtraBold.otf */,
-				3EDC7B14C23EC0D173568B2E /* Pretendard-ExtraLight.otf */,
-				445FDCC89177CB17DC59ABBD /* Pretendard-Light.otf */,
-				A331EFDB52072D295754B1F2 /* Pretendard-Medium.otf */,
-				3FB00500D04150D925C0A6F4 /* Pretendard-Regular.otf */,
-				668F716FF175616D4B8C1EA9 /* Pretendard-SemiBold.otf */,
-				D593C384C34403D08F9DF6F2 /* Pretendard-Thin.otf */,
+				E27BA6DB2D3FB087007B54B0 /* Pretendard */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -122,6 +114,22 @@
 				0BE79716A45CC57BB5D5FAC2 /* dorundorun.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		E27BA6DB2D3FB087007B54B0 /* Pretendard */ = {
+			isa = PBXGroup;
+			children = (
+				B4E4FD66878BCDD0D1E282B2 /* Pretendard-Black.otf */,
+				1C9BF0B471C0D91A7651182F /* Pretendard-Bold.otf */,
+				77BA639E0011A273D9CCDA17 /* Pretendard-ExtraBold.otf */,
+				3EDC7B14C23EC0D173568B2E /* Pretendard-ExtraLight.otf */,
+				445FDCC89177CB17DC59ABBD /* Pretendard-Light.otf */,
+				A331EFDB52072D295754B1F2 /* Pretendard-Medium.otf */,
+				3FB00500D04150D925C0A6F4 /* Pretendard-Regular.otf */,
+				668F716FF175616D4B8C1EA9 /* Pretendard-SemiBold.otf */,
+				D593C384C34403D08F9DF6F2 /* Pretendard-Thin.otf */,
+			);
+			path = Pretendard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
