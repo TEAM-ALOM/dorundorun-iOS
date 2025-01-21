@@ -18,6 +18,18 @@ targets:
     sources: [dorundorun]
     info:
       path: dorundorun/App/Info.plist
+      properties:
+        UIAppFonts:
+          - Pretendard-Black.otf
+          - Pretendard-Bold.otf
+          - Pretendard-ExtraBold.otf
+          - Pretendard-ExtraLight.otf
+          - Pretendard-Light.otf
+          - Pretendard-Medium.otf
+          - Pretendard-Regular.otf
+          - Pretendard-SemiBold.otf
+          - Pretendard-Thin.otf
+          - Jalnan2.otf
     settings:
       base:
         TARGETED_DEVICE_FAMILY: "1"
