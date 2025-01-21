@@ -56,7 +56,6 @@
 		3779F44FFBDB1DB3E3BE5DF4 /* dorundorun */ = {
 			isa = PBXGroup;
 			children = (
-				AA95E43B40E215CF1F8B9304 /* Assets.xcassets */,
 				39F80B4D13380475D8FB93FD /* App */,
 				55F5D06E8DF9721BB671A5DF /* DesignSystem */,
 				5DEF0DB554957D6F41DAB792 /* Presentaion */,
@@ -85,6 +84,7 @@
 		55F5D06E8DF9721BB671A5DF /* DesignSystem */ = {
 			isa = PBXGroup;
 			children = (
+				AA95E43B40E215CF1F8B9304 /* Assets.xcassets */,
 				07E9E0E7584F7ACD69B84B64 /* Colors.xcassets */,
 				1092B57F175DF2EC0F756430 /* Icons.xcassets */,
 				849AE2F6A71AFAA45C6A8BCA /* Fonts */,
