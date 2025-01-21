@@ -11,6 +11,7 @@
 		14D7E642E63946C27FA539DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA95E43B40E215CF1F8B9304 /* Assets.xcassets */; };
 		169A69C646622837132A61DF /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = BC7BDB82108C69BFE8D55B37 /* Pretendard-Black.otf */; };
 		179A084F2A528877C884F95C /* dorundorunApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F690F5DE8513265C9CE21416 /* dorundorunApp.swift */; };
+		1E4C46A4EB5B5B3ACBC9FF4F /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27D368AA7297B221F6A33C28 /* Icons.xcassets */; };
 		23BF6DA484A05B884123024E /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8FF6FC591F024CECD5086E41 /* Pretendard-SemiBold.otf */; };
 		4C8ECDFC1F7C0B9EDF8F0D80 /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3DCC546CFCB4AC577F51F331 /* Pretendard-ExtraBold.otf */; };
 		646CCBAAD0BEF89C9AEC2331 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9D021C8A8D894676D658CCC0 /* Pretendard-Bold.otf */; };
@@ -28,6 +29,7 @@
 		16C88BAFA38CBC8178313E20 /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
 		19146512AE407CF2888E4010 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		1D0A0A7E2B1973475B589A22 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		27D368AA7297B221F6A33C28 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		3DCC546CFCB4AC577F51F331 /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
 		4217CBD1D1E22A7F6731360F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8FF6FC591F024CECD5086E41 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 		8DA6D64446C4CEBF4D842187 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				27D368AA7297B221F6A33C28 /* Icons.xcassets */,
 				D01B6B8AD3CE2E7009E53010 /* Fonts */,
 			);
 			path = Resources;
@@ -174,6 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14D7E642E63946C27FA539DE /* Assets.xcassets in Resources */,
+				1E4C46A4EB5B5B3ACBC9FF4F /* Icons.xcassets in Resources */,
 				169A69C646622837132A61DF /* Pretendard-Black.otf in Resources */,
 				646CCBAAD0BEF89C9AEC2331 /* Pretendard-Bold.otf in Resources */,
 				4C8ECDFC1F7C0B9EDF8F0D80 /* Pretendard-ExtraBold.otf in Resources */,
