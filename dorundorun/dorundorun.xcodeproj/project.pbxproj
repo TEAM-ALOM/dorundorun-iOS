@@ -20,6 +20,7 @@
 		D7907979253E279541E78415 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D0A0A7E2B1973475B589A22 /* Preview Assets.xcassets */; };
 		E0551A8EFED2ABF50016CEE5 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1092B57F175DF2EC0F756430 /* Icons.xcassets */; };
 		E27BA6E02D3FB0F6007B54B0 /* Jalnan2.otf in Resources */ = {isa = PBXBuildFile; fileRef = E27BA6DF2D3FB0F6007B54B0 /* Jalnan2.otf */; };
+		E27BA6E62D3FB496007B54B0 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27BA6E52D3FB496007B54B0 /* Color+Extension.swift */; };
 		E7BD6D2B10F0319465ECFA40 /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 77BA639E0011A273D9CCDA17 /* Pretendard-ExtraBold.otf */; };
 		F4D2913937ADB672F9E299A4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4217CBD1D1E22A7F6731360F /* ContentView.swift */; };
 		F910259FA69F848F125184A6 /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = D593C384C34403D08F9DF6F2 /* Pretendard-Thin.otf */; };
@@ -43,6 +44,8 @@
 		B4E4FD66878BCDD0D1E282B2 /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
 		D593C384C34403D08F9DF6F2 /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
 		E27BA6DF2D3FB0F6007B54B0 /* Jalnan2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Jalnan2.otf; sourceTree = "<group>"; };
+		E27BA6E52D3FB496007B54B0 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		E27BA6E72D3FB560007B54B0 /* RunningButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningButton.swift; sourceTree = "<group>"; };
 		F690F5DE8513265C9CE21416 /* dorundorunApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dorundorunApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,6 +61,7 @@
 		3779F44FFBDB1DB3E3BE5DF4 /* dorundorun */ = {
 			isa = PBXGroup;
 			children = (
+				E27BA6E42D3FB488007B54B0 /* Extension */,
 				39F80B4D13380475D8FB93FD /* App */,
 				55F5D06E8DF9721BB671A5DF /* DesignSystem */,
 				5DEF0DB554957D6F41DAB792 /* Presentaion */,
@@ -86,6 +90,7 @@
 		55F5D06E8DF9721BB671A5DF /* DesignSystem */ = {
 			isa = PBXGroup;
 			children = (
+				E27BA6E82D3FB560007B54B0 /* Components */,
 				AA95E43B40E215CF1F8B9304 /* Assets.xcassets */,
 				07E9E0E7584F7ACD69B84B64 /* Colors.xcassets */,
 				1092B57F175DF2EC0F756430 /* Icons.xcassets */,
@@ -141,6 +146,22 @@
 				E27BA6DF2D3FB0F6007B54B0 /* Jalnan2.otf */,
 			);
 			path = Jalnan2;
+			sourceTree = "<group>";
+		};
+		E27BA6E42D3FB488007B54B0 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				E27BA6E52D3FB496007B54B0 /* Color+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		E27BA6E82D3FB560007B54B0 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E27BA6E72D3FB560007B54B0 /* RunningButton.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +243,8 @@
 			files = (
 				F4D2913937ADB672F9E299A4 /* ContentView.swift in Sources */,
 				179A084F2A528877C884F95C /* dorundorunApp.swift in Sources */,
+				E27BA6E62D3FB496007B54B0 /* Color+Extension.swift in Sources */,
+				E27BA6E92D3FB560007B54B0 /* RunningButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
