@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct LoginView: View {
+  private struct LoginButtonConstants {
+      static let width: CGFloat = 361
+      static let height: CGFloat = 48
+      static let cornerRadius: CGFloat = 12
+  }
+  
   var body: some View {
     VStack {
       Spacer()
@@ -26,39 +32,46 @@ struct LoginView: View {
       
       Spacer()
       
-      VStack {
-        Button {
+      createLoginButton(
+        title: "카카오로 시작하기",
+        color: Color.yellow,
+        textColor: Color.black,
+        iconName: "loginButtonKakao"
+      ) {
           // store로 action 전달 필요
-        } label: {
-          ZStack {
-            RoundedRectangle(cornerRadius: 12)
-              .fill(Color.yellow) // 색상 수정 필요
-              .frame(width: 361, height: 48)
-            
-            HStack {
-              Image("loginButtonKakao")
-              
-              Text("카카오로 시작하기")
-                .foregroundStyle(Color.black) // 색상 수정 필요
-            }
-          }
         }
-        
-        Button {
+      
+      createLoginButton(
+        title: "Apple로 시작하기",
+        color: Color.black,
+        textColor: Color.white,
+        iconName: "loginButtonApple"
+      ) {
           // store로 action 전달 필요
-        } label: {
-          ZStack {
-            RoundedRectangle(cornerRadius: 12)
-              .fill(Color.black) // 색상 수정 필요
-              .frame(width: 361, height: 48)
-            
-            HStack {
-              Image("loginButtonApple")
+        }
+    }
+  }
+  
+  private func createLoginButton(
+      title: String,
+      color: Color,
+      textColor: Color,
+      iconName: String,
+      action: @escaping () -> Void
+  ) -> some View {
+    Button {
+      action()
+    } label: {
+      ZStack {
+        RoundedRectangle(cornerRadius: LoginButtonConstants.cornerRadius)
+          .fill(color)
+          .frame(width: LoginButtonConstants.width, height: LoginButtonConstants.height)
           
-              Text("Apple로 시작하기")
-                .foregroundStyle(Color.white) // 색상 수정 필요
-            }
-          }
+        HStack {
+          Image(iconName)
+        
+          Text(title)
+            .foregroundStyle(textColor)
         }
       }
     }
