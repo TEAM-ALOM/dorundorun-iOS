@@ -42,6 +42,7 @@ struct TabbarView: View {
 struct CustomTabView: View {
   @Binding var selectedTab : Tab
   
+  
   var body: some View{
     VStack(spacing : 0){
       
@@ -109,12 +110,11 @@ struct ButtonView : View {
     VStack{
       Image(imageName)
         .renderingMode(.template)
-        .foregroundStyle(isSelected ? Color("primary200") : Color("nutral500"))
+        .foregroundStyle(isSelected ? Color.primary200 : Color.neutral500)
         .padding(.vertical, 7)
       Text(title)
         .font(.custom("SUIT", size: 10))
-        .foregroundStyle(isSelected ? Color("primary200") : Color("nutral600"))
-//        .padding(.bottom, 40)
+        .foregroundStyle(isSelected ? Color.primary200 : Color.neutral600)
     }
     .offset(y: -15)
   }
