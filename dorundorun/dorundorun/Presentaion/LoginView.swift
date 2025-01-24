@@ -9,7 +9,6 @@ import SwiftUI
 
 struct LoginView: View {
   private struct LoginButtonConstants {
-      static let width: CGFloat = 361
       static let height: CGFloat = 48
       static let cornerRadius: CGFloat = 12
   }
@@ -68,7 +67,8 @@ struct LoginView: View {
       ZStack {
         RoundedRectangle(cornerRadius: LoginButtonConstants.cornerRadius)
           .fill(color)
-          .frame(width: LoginButtonConstants.width, height: LoginButtonConstants.height)
+          .frame(width: .infinity, height: LoginButtonConstants.height)
+          .padding(.horizontal, 16)
           
         HStack {
           Image(iconResource)
