@@ -55,26 +55,42 @@ struct CustomTabView: View {
           Spacer()
 
           Button(action: {selectedTab = .home}){
-            ButtonView(imageName: "home-30", title: "홈", isSelected: selectedTab == .home)
+            ButtonView(
+              imageName: "home-30",
+              title: "홈",
+              isSelected: selectedTab == .home
+            )
           }
 
           Spacer()
           
           Button(action: {selectedTab = .doodleRun}){
-            ButtonView(imageName: "run-30", title: "두들런", isSelected: selectedTab == .doodleRun)
+            ButtonView(
+              imageName: "run-30",
+              title: "두들런",
+              isSelected: selectedTab == .doodleRun
+            )
           }
                                               
           Spacer()
 
           Button(action: {selectedTab = .market}){
-            ButtonView(imageName: "store-30", title: "마켓", isSelected: selectedTab == .market)
+            ButtonView(
+              imageName: "store-30",
+              title: "마켓",
+              isSelected: selectedTab == .market
+            )
           }
                                               
                                               
           Spacer()
           
           Button(action: {selectedTab = .myPage}){
-            ButtonView(imageName: "mypage-30", title: "마이", isSelected: selectedTab == .myPage)
+            ButtonView(
+              imageName: "mypage-30",
+              title: "마이",
+              isSelected: selectedTab == .myPage
+            )
           }
                                               
           Spacer()
