@@ -32,7 +32,7 @@ struct TabbarView: View {
       }
       
       CustomTabView(selectedTab: $seletedTab)
-        .frame(height: 60)
+        .frame(height: 99)
         .background(Color.white)
     }
     .edgesIgnoringSafeArea(.bottom)
@@ -46,14 +46,12 @@ struct CustomTabView: View {
     VStack(spacing : 0){
       
       Rectangle()
-        .frame(height: 4)
+        .frame(height: 3)
         .foregroundStyle(Color("nutral100"))
       
       Spacer()
       ZStack{
         HStack{
-          Spacer()
-
           Button(action: {selectedTab = .home}){
             ButtonView(
               imageName: "home-30",
@@ -92,10 +90,8 @@ struct CustomTabView: View {
               isSelected: selectedTab == .myPage
             )
           }
-                                              
-          Spacer()
-
         }
+        .frame(width: 313, height: 51)
         .padding(.vertical, 15)
       }
     }
@@ -105,17 +101,18 @@ struct CustomTabView: View {
 
                                               
 struct ButtonView : View {
-  var imageName : String
-  var title: String
-  var isSelected: Bool
+  let imageName : String
+  let title: String
+  let isSelected: Bool
               
   var body: some View{
     VStack{
       Image(imageName)
         .renderingMode(.template)
         .foregroundStyle(isSelected ? Color("primary200") : Color("nutral500"))
+        .padding(.vertical, 7)
       Text(title)
-        .font(.custom("Jalnan2", size: 12))
+        .font(.custom("SUIT", size: 10))
         .foregroundStyle(isSelected ? Color("primary200") : Color("nutral600"))
 //        .padding(.bottom, 40)
     }
