@@ -47,6 +47,18 @@
 		E27BA6DF2D3FB0F6007B54B0 /* Jalnan2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Jalnan2.otf; sourceTree = "<group>"; };
 		E27BA6E52D3FB496007B54B0 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		E27BA6E72D3FB560007B54B0 /* RunningButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningButton.swift; sourceTree = "<group>"; };
+		C3406EE72D3E25B900953DB7 /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3406EE62D3E25B900953DB7 /* TabbarView.swift */; };
+		D7907979253E279541E78415 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D0A0A7E2B1973475B589A22 /* Preview Assets.xcassets */; };
+		F4D2913937ADB672F9E299A4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4217CBD1D1E22A7F6731360F /* ContentView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0BE79716A45CC57BB5D5FAC2 /* dorundorun.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = dorundorun.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D0A0A7E2B1973475B589A22 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4217CBD1D1E22A7F6731360F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		9B54D871BBDE0FE1796A1460 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		AA95E43B40E215CF1F8B9304 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C3406EE62D3E25B900953DB7 /* TabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
 		F690F5DE8513265C9CE21416 /* dorundorunApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dorundorunApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,6 +77,8 @@
 				E27BA6E42D3FB488007B54B0 /* Extension */,
 				39F80B4D13380475D8FB93FD /* App */,
 				55F5D06E8DF9721BB671A5DF /* DesignSystem */,
+				AA95E43B40E215CF1F8B9304 /* Assets.xcassets */,
+				39F80B4D13380475D8FB93FD /* App */,
 				5DEF0DB554957D6F41DAB792 /* Presentaion */,
 				48E1EFB47D466708BE777860 /* Preview Content */,
 			);
@@ -76,6 +90,7 @@
 			children = (
 				F690F5DE8513265C9CE21416 /* dorundorunApp.swift */,
 				9B54D871BBDE0FE1796A1460 /* Info.plist */,
+				C3406EE62D3E25B900953DB7 /* TabbarView.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -246,6 +261,9 @@
 				179A084F2A528877C884F95C /* dorundorunApp.swift in Sources */,
 				E27BA6E62D3FB496007B54B0 /* Color+Extension.swift in Sources */,
 				E27BA6E92D3FB560007B54B0 /* RunningButton.swift in Sources */,
+				C3406EE72D3E25B900953DB7 /* TabbarView.swift in Sources */,
+				F4D2913937ADB672F9E299A4 /* ContentView.swift in Sources */,
+				179A084F2A528877C884F95C /* dorundorunApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
