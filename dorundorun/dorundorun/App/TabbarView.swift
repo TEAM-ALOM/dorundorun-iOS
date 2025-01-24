@@ -2,94 +2,112 @@
 //  TabbarView.swift
 //  dorundorun
 //
-//  Created by 박서현 on 1/20/25.
+//  Created by 박서현 on 1/24/25.
 //
 
 import SwiftUI
 
+enum Tab{
+  case home
+  case doodleRun
+  case market
+  case myPage
+}
+
 struct TabbarView: View {
   
-  init() {
-    let appearance = UITabBarAppearance()
-    appearance.configureWithOpaqueBackground()
-    appearance.backgroundColor = UIColor.white // 탭바 배경 설정
-
-    // 활성화된 아이템 색상
-    appearance.stackedLayoutAppearance.selected.iconColor = UIColor(#colorLiteral(red: 0.4748314023, green: 0.3105015755, blue: 0.9763918519, alpha: 1))
-    appearance.stackedLayoutAppearance.selected.titleTextAttributes = [.foregroundColor: UIColor(#colorLiteral(red: 0.4748314023, green: 0.3105015755, blue: 0.9763918519, alpha: 1))]
-            
-    // 비활성화된 아이템 색상
-    appearance.stackedLayoutAppearance.normal.iconColor = UIColor(#colorLiteral(red: 0.7401758432, green: 0.6517201066, blue: 0.98768574, alpha: 1))
-    appearance.stackedLayoutAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor(#colorLiteral(red: 0.7401758432, green: 0.6517201066, blue: 0.98768574, alpha: 1))]
-
-    // 탭 아이템 중앙 배치 설정
-    appearance.stackedItemPositioning = .centered // 중앙 배치
-    appearance.stackedItemSpacing = 4
-
-    UITabBar.appearance().standardAppearance = appearance
-  }
+  @State var seletedTab: Tab = .home
   
   var body: some View {
-    TabView {
-      VStack {
-        Text("홈 화면")
-          .frame(maxWidth: .infinity, maxHeight: .infinity)
-        
-        Rectangle()
-          .frame(height: 4)
-          .foregroundStyle(Color.gray)
-          .opacity(0.3)
-      }
-      .tabItem {
-        Label("홈", systemImage: "house")
+    VStack(spacing : 0){
+      switch seletedTab {
+      case .home:
+        homeView()
+      case .doodleRun:
+        doodleRunView()
+      case .market:
+        marketView()
+      case .myPage:
+        myPageView()
       }
       
-      VStack {
-        Text("두들런 화면")
-          .frame(maxWidth: .infinity, maxHeight: .infinity)
-        
-        Rectangle()
-          .frame(height: 4)
-          .foregroundStyle(Color.gray)
-          .opacity(0.3)
-      }
-      .tabItem {
-        Label("두들런", systemImage: "waveform.path.ecg")
-      }
+      CustomTabView(selectedTab: $seletedTab)
+        .frame(height: 60)
+        .background(Color.white)
+    }
+    .edgesIgnoringSafeArea(.bottom)
+  }
+}
+
+struct CustomTabView: View {
+  @Binding var selectedTab : Tab
+  
+  var body: some View{
+    VStack(spacing : 0){
       
-      VStack {
-        Text("마켓 화면")
-          .frame(maxWidth: .infinity, maxHeight: .infinity)
-        
-        Rectangle()
-          .frame(height: 4)
-          .foregroundStyle(Color.gray)
-          .opacity(0.3)
-      }
-      .tabItem {
-        Label("마켓", systemImage: "cart")
-      }
+      Rectangle()
+        .frame(height: 4)
+        .foregroundStyle(Color("nutral100"))
       
-      VStack {
-        Text("마이페이지 화면")
-          .frame(maxWidth: .infinity, maxHeight: .infinity)
-        
-        Rectangle()
-          .frame(height: 4)
-          .foregroundStyle(Color.gray)
-          .opacity(0.3)
-      }
-      .tabItem {
-        Label("마이페이지", systemImage: "person.crop.circle")
+      Spacer()
+      ZStack{
+        HStack{
+          Spacer()
+
+          Button(action: {selectedTab = .home}){
+            ButtonView(imageName: "home-30", title: "홈", isSelected: selectedTab == .home)
+          }
+
+          Spacer()
+          
+          Button(action: {selectedTab = .doodleRun}){
+            ButtonView(imageName: "run-30", title: "두들런", isSelected: selectedTab == .doodleRun)
+          }
+                                              
+          Spacer()
+
+          Button(action: {selectedTab = .market}){
+            ButtonView(imageName: "store-30", title: "마켓", isSelected: selectedTab == .market)
+          }
+                                              
+                                              
+          Spacer()
+          
+          Button(action: {selectedTab = .myPage}){
+            ButtonView(imageName: "mypage-30", title: "마이", isSelected: selectedTab == .myPage)
+          }
+                                              
+          Spacer()
+
+        }
+        .padding(.vertical, 15)
       }
     }
-    .tint(Color(#colorLiteral(red: 0.4748314023, green: 0.3105015755, blue: 0.9763918519, alpha: 1)))
-    .onAppear {
-      UITabBar.appearance().unselectedItemTintColor = UIColor(#colorLiteral(red: 0.7401758432, green: 0.6517201066, blue: 0.98768574, alpha: 1))
+    .edgesIgnoringSafeArea(.bottom)
+  }
+}
+
+                                              
+struct ButtonView : View {
+  var imageName : String
+  var title: String
+  var isSelected: Bool
+              
+  var body: some View{
+    VStack{
+      Image(imageName)
+        .renderingMode(.template)
+        .foregroundStyle(isSelected ? Color("primary200") : Color("nutral500"))
+      Text(title)
+        .font(.custom("Jalnan2", size: 12))
+        .foregroundStyle(isSelected ? Color("primary200") : Color("nutral600"))
+//        .padding(.bottom, 40)
     }
+    .offset(y: -15)
   }
 }
 
 #Preview {
   TabbarView()
 }
+
