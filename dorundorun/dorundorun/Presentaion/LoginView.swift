@@ -39,7 +39,7 @@ struct LoginView: View {
         title: "카카오로 시작하기",
         color: Color(red: 0.996, green: 0.898, blue: 0.0, opacity: 1.0),
         textColor: Color.black,
-        iconName: "loginButtonKakao"
+        iconResource: .kakao20
       ) {
           // store로 action 전달 필요
         }
@@ -48,7 +48,7 @@ struct LoginView: View {
         title: "Apple로 시작하기",
         color: Color.black,
         textColor: Color.white,
-        iconName: "loginButtonApple"
+        iconResource: .apple20
       ) {
           // store로 action 전달 필요
         }
@@ -59,7 +59,7 @@ struct LoginView: View {
       title: String,
       color: Color,
       textColor: Color,
-      iconName: String,
+      iconResource: ImageResource,
       action: @escaping () -> Void
   ) -> some View {
     Button {
@@ -71,7 +71,7 @@ struct LoginView: View {
           .frame(width: LoginButtonConstants.width, height: LoginButtonConstants.height)
           
         HStack {
-          Image(iconName)
+          Image(iconResource)
         
           Text(title)
             .foregroundStyle(textColor)
