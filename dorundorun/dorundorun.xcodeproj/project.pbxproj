@@ -16,8 +16,9 @@
 		7ED3F8F0C2A527633323714E /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 668F716FF175616D4B8C1EA9 /* Pretendard-SemiBold.otf */; };
 		863036F891814ADD79543A39 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = A331EFDB52072D295754B1F2 /* Pretendard-Medium.otf */; };
 		AC4B7064FF253A4AE4FB9E93 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3FB00500D04150D925C0A6F4 /* Pretendard-Regular.otf */; };
-		C3406EE72D3E25B900953DB7 /* (null) in Sources */ = {isa = PBXBuildFile; };
-		C3606C472D43D83A00A075A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3606C462D43D83A00A075A1 /* Assets.xcassets */; };
+		C3606C4F2D453ABE00A075A1 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3606C4E2D453ABE00A075A1 /* CustomTabView.swift */; };
+		C3606C512D453AF500A075A1 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3606C502D453AF500A075A1 /* ButtonView.swift */; };
+		C3606C532D453E4300A075A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3606C522D453E4300A075A1 /* Assets.xcassets */; };
 		C3F5DB202D4393E800605A18 /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F5DB1F2D4393E800605A18 /* TabbarView.swift */; };
 		C3F5DB222D43945700605A18 /* homeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F5DB212D43945700605A18 /* homeView.swift */; };
 		C3F5DB242D43948800605A18 /* doodleRunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F5DB232D43948800605A18 /* doodleRunView.swift */; };
@@ -48,7 +49,9 @@
 		9B54D871BBDE0FE1796A1460 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A331EFDB52072D295754B1F2 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		B4E4FD66878BCDD0D1E282B2 /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
-		C3606C462D43D83A00A075A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C3606C4E2D453ABE00A075A1 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
+		C3606C502D453AF500A075A1 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		C3606C522D453E4300A075A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C3F5DB1F2D4393E800605A18 /* TabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
 		C3F5DB212D43945700605A18 /* homeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeView.swift; sourceTree = "<group>"; };
 		C3F5DB232D43948800605A18 /* doodleRunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = doodleRunView.swift; sourceTree = "<group>"; };
@@ -75,7 +78,6 @@
 			children = (
 				E27BA6E42D3FB488007B54B0 /* Extension */,
 				55F5D06E8DF9721BB671A5DF /* DesignSystem */,
-				C3606C462D43D83A00A075A1 /* Assets.xcassets */,
 				39F80B4D13380475D8FB93FD /* App */,
 				5DEF0DB554957D6F41DAB792 /* Presentaion */,
 				48E1EFB47D466708BE777860 /* Preview Content */,
@@ -119,6 +121,8 @@
 				C3F5DB212D43945700605A18 /* homeView.swift */,
 				C3F5DB252D43949C00605A18 /* marketView.swift */,
 				C3F5DB272D4394AF00605A18 /* myPageView.swift */,
+				C3606C4E2D453ABE00A075A1 /* CustomTabView.swift */,
+				C3606C502D453AF500A075A1 /* ButtonView.swift */,
 				4217CBD1D1E22A7F6731360F /* ContentView.swift */,
 			);
 			path = Presentaion;
@@ -129,6 +133,7 @@
 			children = (
 				E27BA6DC2D3FB0B5007B54B0 /* Jalnan2 */,
 				E27BA6DB2D3FB087007B54B0 /* Pretendard */,
+				C3606C522D453E4300A075A1 /* Assets.xcassets */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -237,8 +242,8 @@
 				7793A74E729409FA1E0C3404 /* Colors.xcassets in Resources */,
 				E0551A8EFED2ABF50016CEE5 /* Icons.xcassets in Resources */,
 				593EA6E55F6150BBEB46BC7C /* Pretendard-Black.otf in Resources */,
-				C3606C472D43D83A00A075A1 /* Assets.xcassets in Resources */,
 				387D3C3B3CC2824201AD8F93 /* Pretendard-Bold.otf in Resources */,
+				C3606C532D453E4300A075A1 /* Assets.xcassets in Resources */,
 				E7BD6D2B10F0319465ECFA40 /* Pretendard-ExtraBold.otf in Resources */,
 				7804B7E78ABADB9B8E808E19 /* Pretendard-ExtraLight.otf in Resources */,
 				48967D1F4ECBB1551E7590D8 /* Pretendard-Light.otf in Resources */,
@@ -260,12 +265,13 @@
 			files = (
 				E27BA6E62D3FB496007B54B0 /* Color+Extension.swift in Sources */,
 				E27BA6E92D3FB560007B54B0 /* RunningButton.swift in Sources */,
-				C3406EE72D3E25B900953DB7 /* (null) in Sources */,
+				C3606C512D453AF500A075A1 /* ButtonView.swift in Sources */,
 				C3F5DB262D43949C00605A18 /* marketView.swift in Sources */,
 				F4D2913937ADB672F9E299A4 /* ContentView.swift in Sources */,
 				C3F5DB242D43948800605A18 /* doodleRunView.swift in Sources */,
 				C3F5DB222D43945700605A18 /* homeView.swift in Sources */,
 				C3F5DB282D4394AF00605A18 /* myPageView.swift in Sources */,
+				C3606C4F2D453ABE00A075A1 /* CustomTabView.swift in Sources */,
 				C3F5DB202D4393E800605A18 /* TabbarView.swift in Sources */,
 				179A084F2A528877C884F95C /* dorundorunApp.swift in Sources */,
 			);
