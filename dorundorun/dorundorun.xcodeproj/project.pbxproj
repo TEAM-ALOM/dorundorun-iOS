@@ -88,11 +88,6 @@
 			children = (
 				F690F5DE8513265C9CE21416 /* dorundorunApp.swift */,
 				9B54D871BBDE0FE1796A1460 /* Info.plist */,
-				C3F5DB1F2D4393E800605A18 /* TabbarView.swift */,
-				C3F5DB232D43948800605A18 /* doodleRunView.swift */,
-				C3F5DB212D43945700605A18 /* homeView.swift */,
-				C3F5DB252D43949C00605A18 /* marketView.swift */,
-				C3F5DB272D4394AF00605A18 /* myPageView.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -119,6 +114,11 @@
 		5DEF0DB554957D6F41DAB792 /* Presentaion */ = {
 			isa = PBXGroup;
 			children = (
+				C3F5DB1F2D4393E800605A18 /* TabbarView.swift */,
+				C3F5DB232D43948800605A18 /* doodleRunView.swift */,
+				C3F5DB212D43945700605A18 /* homeView.swift */,
+				C3F5DB252D43949C00605A18 /* marketView.swift */,
+				C3F5DB272D4394AF00605A18 /* myPageView.swift */,
 				4217CBD1D1E22A7F6731360F /* ContentView.swift */,
 			);
 			path = Presentaion;
