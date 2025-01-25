@@ -19,7 +19,7 @@ struct TabbarView: View {
   @State var seletedTab: Tab = .home
   
   var body: some View {
-    VStack(spacing : 0){
+    VStack(spacing: 0){
       switch seletedTab {
       case .home:
         homeView()
@@ -42,7 +42,7 @@ struct CustomTabView: View {
   @Binding var selectedTab: Tab
   
   var body: some View{
-    VStack(spacing : 0){
+    VStack(spacing: 0){
       Rectangle()
         .frame(height: 3)
         .foregroundStyle(Color("nutral100"))
