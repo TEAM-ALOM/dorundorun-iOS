@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import DesignSystem
 
 struct LoginView: View {
   private struct LoginButtonConstants {
@@ -29,7 +30,7 @@ struct LoginView: View {
 
       Text("혼자 또는 같이 즐기는 비대면 러닝크루, 두런두런입니다.")
         .foregroundStyle(Color.primary200)
-        .font(.custom("Pretendard-Regular", size: 13))
+        .font(.custom("Pretendard-Regular.otf", size: 13))
         .padding(.top, 8)
       
       Spacer()
@@ -38,7 +39,7 @@ struct LoginView: View {
         title: "카카오로 시작하기",
         color: Color(red: 0.996, green: 0.898, blue: 0.0, opacity: 1.0),
         textColor: Color.black,
-        iconResource: .kakao20
+        icon: DesignSystemAsset.Icons.kakao20.name
       ) {
           // store로 action 전달 필요
         }
@@ -47,7 +48,7 @@ struct LoginView: View {
         title: "Apple로 시작하기",
         color: Color.black,
         textColor: Color.white,
-        iconResource: .apple20
+        icon: DesignSystemAsset.Icons.apple20.name
       ) {
           // store로 action 전달 필요
         }
@@ -58,7 +59,7 @@ struct LoginView: View {
       title: String,
       color: Color,
       textColor: Color,
-      iconResource: ImageResource,
+      icon: String,
       action: @escaping () -> Void
   ) -> some View {
     Button {
@@ -71,7 +72,7 @@ struct LoginView: View {
           .padding(.horizontal, 16)
           
         HStack {
-          Image(iconResource)
+          Image(icon)
         
           Text(title)
             .foregroundStyle(textColor)
