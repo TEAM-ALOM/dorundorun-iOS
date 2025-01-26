@@ -14,7 +14,7 @@ struct CustomTabView: View {
     VStack(spacing: 0){
       Rectangle()
         .frame(height: 4)
-        .foregroundStyle(Color.neutral100)
+        .foregroundStyle(Color.nutral100)
       
       Spacer()
       HStack{

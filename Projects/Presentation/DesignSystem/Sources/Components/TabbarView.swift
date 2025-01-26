@@ -32,7 +32,7 @@ struct TabbarView: View {
       }
       CustomTabView(selectedTab: $seletedTab)
         .frame(maxWidth: .infinity)
-        .background(Color.neutralWhite)
+        .background(Color.nutralWhite)
     }
     .edgesIgnoringSafeArea(.bottom)
   }

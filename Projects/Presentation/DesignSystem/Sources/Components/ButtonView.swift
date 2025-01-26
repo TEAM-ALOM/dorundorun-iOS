@@ -16,11 +16,11 @@ struct ButtonView: View {
     VStack {
       Image(imageName)
         .renderingMode(.template)
-        .foregroundStyle(isSelected ? Color.primary200 : Color.neutral500)
+        .foregroundStyle(isSelected ? Color.primary200 : Color.nutral500)
         .padding(.bottom, 9)
       Text(title)
         .font(.custom("SUIT", size: 10))
-        .foregroundStyle(isSelected ? Color.primary200 : Color.neutral600)
+        .foregroundStyle(isSelected ? Color.primary200 : Color.nutral600)
         .padding(.bottom, 22)
     }
   }
