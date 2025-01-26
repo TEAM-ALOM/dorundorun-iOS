@@ -56,6 +56,7 @@ struct CustomTabView: View {
       .frame(width: 300, height: 55)
       .padding(.vertical, 15)
     }
+    .frame(height: 92)
     .edgesIgnoringSafeArea(.bottom)
   }
 }
