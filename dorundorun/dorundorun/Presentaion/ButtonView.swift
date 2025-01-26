@@ -12,17 +12,16 @@ struct ButtonView: View {
   let title: String
   let isSelected: Bool
               
-  var body: some View{
-    VStack{
+  var body: some View {
+    VStack {
       Image(imageName)
         .renderingMode(.template)
         .foregroundStyle(isSelected ? Color.primary200 : Color.neutral500)
-        .padding(.vertical, 7)
+        .padding(.bottom, 9)
       Text(title)
         .font(.custom("SUIT", size: 10))
         .foregroundStyle(isSelected ? Color.primary200 : Color.neutral600)
     }
-    .offset(y: -15)
   }
 }
 

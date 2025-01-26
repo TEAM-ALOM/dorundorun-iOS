@@ -10,10 +10,10 @@ import SwiftUI
 struct CustomTabView: View {
   @Binding var selectedTab: Tab
   
-  var body: some View{
+  var body: some View {
     VStack(spacing: 0){
       Rectangle()
-        .frame(height: 3)
+        .frame(height: 4)
         .foregroundStyle(Color.neutral100)
       
       Spacer()
@@ -53,7 +53,7 @@ struct CustomTabView: View {
           )
         }
       }
-      .frame(width: 313, height: 51)
+      .frame(width: 300, height: 55)
       .padding(.vertical, 15)
     }
     .edgesIgnoringSafeArea(.bottom)
