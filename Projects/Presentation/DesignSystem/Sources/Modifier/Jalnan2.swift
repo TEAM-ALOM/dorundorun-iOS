@@ -8,7 +8,7 @@
 import SwiftUI
 
 public extension View {
-  func jalnan(size: CGFloat) -> some View {
-    self.font(Fonts.Jalnan.font(size: size))
+  func jalnan(_ weight: Fonts.Jalnan, size: CGFloat) -> some View {
+    self.font(weight.font(size: size))
   }
 }
