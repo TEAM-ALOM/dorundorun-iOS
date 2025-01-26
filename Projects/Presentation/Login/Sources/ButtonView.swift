@@ -27,5 +27,9 @@ struct ButtonView: View {
 }
 
 #Preview {
-  ButtonView(imageName: "home-30", title: "홈", isSelected: true)
+  ButtonView(
+    imageName: "home-30",
+    title: "홈",
+    isSelected: true
+  )
 }
