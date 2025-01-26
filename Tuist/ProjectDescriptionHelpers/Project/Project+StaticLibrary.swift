@@ -14,12 +14,12 @@ extension Project {
       targets: [
         .target(
           name: name,
-          destinations: .iOS,
+          destinations: Environment.destinations,
           product: .staticLibrary,
-          bundleId: "io.tuist.\(name)",
+          bundleId: Environment.bundleId,
+          deploymentTargets: Environment.deploymentTarget,
           infoPlist: .default,
           sources: ["Sources/**"],
-          resources: ["Resources/**",],
           dependencies: dependencies
         )
       ]
