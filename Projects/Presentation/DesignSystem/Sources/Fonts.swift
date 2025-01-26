@@ -79,6 +79,8 @@ public enum Fonts {
   }
   
   public enum Jalnan {
+    case regular
+    
     func font(size: CGFloat) -> SwiftUI.Font {
       DesignSystemFontFamily.Jalnan2.regular.swiftUIFont(size: size)
     }
