@@ -21,6 +21,7 @@ struct ButtonView: View {
       Text(title)
         .font(.custom("SUIT", size: 10))
         .foregroundStyle(isSelected ? Color.primary200 : Color.neutral600)
+        .padding(.bottom, 22)
     }
   }
 }
