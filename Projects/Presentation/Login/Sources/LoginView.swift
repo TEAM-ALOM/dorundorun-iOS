@@ -29,9 +29,11 @@ struct LoginView: View {
       .font(.custom("Jalnan2", size: 20))
 
       Text("혼자 또는 같이 즐기는 비대면 러닝크루, 두런두런입니다.")
+        .jalnan(.regular, size: 26)
         .foregroundStyle(Color.primary200)
-        .font(.custom("Pretendard-Regular.otf", size: 13))
         .padding(.top, 8)
+          .suit(.medium, size: 15)
+          .foregroundStyle(Color.nutral600)
       
       Spacer()
       
@@ -75,6 +77,7 @@ struct LoginView: View {
           Image(icon)
         
           Text(title)
+            .suit(.medium, size: 15)
             .foregroundStyle(textColor)
         }
       }
