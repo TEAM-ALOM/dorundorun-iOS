@@ -77,7 +77,7 @@ struct LoginView: View {
         RoundedRectangle(cornerRadius: LoginButtonConstants.cornerRadius)
           .fill(color)
           .frame(width: .infinity, height: LoginButtonConstants.height)
-          .padding(.horizontal, 16)
+          .padding(.horizontal, 13)
           
         HStack {
           Image(asset: icon)
