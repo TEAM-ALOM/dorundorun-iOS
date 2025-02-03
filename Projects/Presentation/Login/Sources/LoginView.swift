@@ -17,25 +17,31 @@ struct LoginView: View {
   var body: some View {
     VStack {
       Spacer()
+        .frame(height: 383)
       
-      Rectangle()
-        .fill(Color.gray)
-        .frame(width: 100, height: 100)
-      
-      Group {
-        Text("안녕하세요!")
-        Text("저 두런이와 함께 뛸 준비 되셨나요?")
-      }
-      .font(.custom("Jalnan2", size: 20))
-
-      Text("혼자 또는 같이 즐기는 비대면 러닝크루, 두런두런입니다.")
+      VStack(alignment: .leading) {
+        RoundedRectangle(cornerRadius: 5)
+          .stroke(Color.gray)
+          .fill(Color.nutral200)
+          .frame(width: 102, height: 102)
+        
+        Group {
+          Text("안녕하세요!")
+          Text("두런이와 함께 뛰어요!")
+        }
         .jalnan(.regular, size: 26)
         .foregroundStyle(Color.primary200)
-        .padding(.top, 8)
+        
+        Text("혼자도, 함께도 즐기는 비대면 러닝크루")
           .suit(.medium, size: 15)
           .foregroundStyle(Color.nutral600)
+          .padding(.top, 2)
+      }
+      .frame(maxWidth: .infinity, alignment: .leading)
+      .padding(.leading, 16)
+      .padding(.bottom, 63)
       
-      Spacer()
+      
       
       createLoginButton(
         title: "카카오로 시작하기",
