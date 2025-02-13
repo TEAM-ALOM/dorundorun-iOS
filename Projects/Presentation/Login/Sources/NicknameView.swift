@@ -13,3 +13,7 @@ struct NicknameView: View {
     Text("Nickname")
   }
 }
+
+#Preview {
+  NicknameView()
+}
