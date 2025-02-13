@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct ButtonView: View {
-  let imageName: String
+  let icon: DesignSystemImages
   let title: String
   let isSelected: Bool
               
   var body: some View {
     VStack {
-      Image(imageName)
+      Image(icon.name)
         .renderingMode(.template)
         .foregroundStyle(isSelected ? Color.primary200 : Color.nutral500)
         .padding(.bottom, 9)
@@ -28,7 +28,7 @@ struct ButtonView: View {
 
 #Preview {
   ButtonView(
-    imageName: "home-30",
+    icon: DesignSystemAsset.Icons.home30,
     title: "홈",
     isSelected: true
   )
