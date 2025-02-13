@@ -20,7 +20,7 @@ struct TopBarView: View {
         
         Spacer()
         
-        HStack(spacing: 8) {
+        HStack() {
           Rectangle()
             .frame(width: 20, height: 20)
             .foregroundStyle(Color.nutral100)
