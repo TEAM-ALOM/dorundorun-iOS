@@ -20,7 +20,7 @@ struct CustomTabView: View {
       HStack{
         Button(action: {selectedTab = .home}){
           ButtonView(
-            icon: DesignSystemAsset.Icons.home30,
+            icon: DesignSystemAsset.Icons.home30.swiftUIImage,
             title: "홈",
             isSelected: selectedTab == .home
           )
@@ -29,7 +29,7 @@ struct CustomTabView: View {
         Spacer()
         Button(action: {selectedTab = .doodleRun}){
           ButtonView(
-            icon: DesignSystemAsset.Icons.run30,
+            icon: DesignSystemAsset.Icons.run30.swiftUIImage,
             title: "두들런",
             isSelected: selectedTab == .doodleRun
           )
@@ -38,7 +38,7 @@ struct CustomTabView: View {
         Spacer()
         Button(action: {selectedTab = .market}){
           ButtonView(
-            icon: DesignSystemAsset.Icons.store30,
+            icon: DesignSystemAsset.Icons.store30.swiftUIImage,
             title: "마켓",
             isSelected: selectedTab == .market
           )
@@ -47,7 +47,7 @@ struct CustomTabView: View {
         Spacer()
         Button(action: {selectedTab = .myPage}){
           ButtonView(
-            icon: DesignSystemAsset.Icons.mypage30,
+            icon: DesignSystemAsset.Icons.mypage30.swiftUIImage,
             title: "마이",
             isSelected: selectedTab == .myPage
           )
@@ -58,6 +58,7 @@ struct CustomTabView: View {
     }
     .frame(height: 92)
     .edgesIgnoringSafeArea(.bottom)
+    .padding(.bottom, 28)
   }
 }
 
