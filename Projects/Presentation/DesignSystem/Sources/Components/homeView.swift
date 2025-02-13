@@ -59,12 +59,10 @@ struct homeView: View {
           .padding(.bottom, 32)
         // 캐릭터
         
-        Rectangle()
-          .frame(width: 188, height: 22)
-          .foregroundStyle(Color.nutral100)
+        RunningProgressView()
+//          .frame(width: 188, height: 22)
           .padding(.bottom, 16)
         // 목표
-        // 다른 View로 구현할 예정
         
         Button(action: {
           isRunning.toggle()
