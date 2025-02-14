@@ -13,6 +13,9 @@ struct NicknameView: View {
   
   var body: some View {
     VStack {
+      Spacer()
+        .frame(height: 191)
+      
       Group {
         Text("안녕하세요!")
           .padding(.bottom, 48)
@@ -30,9 +33,22 @@ struct NicknameView: View {
       .foregroundStyle(Color.primary200)
     }
     
+    ZStack {
+      RoundedRectangle(cornerRadius: 50)
+        .stroke(Color.primary200, lineWidth: 1)
+        .fill(Color.white)
+        .frame(width: .infinity, height: 48)
+        .padding(.horizontal, 32)
+      
+      Text("사용할 닉네임을 입력해주세요.")
+        .suit(.light, size: 15)
+        .foregroundStyle(Color.nutral500)
+    }
+    .padding(.bottom, 91)
+    
     isNicknameCompleted ?
-    OnboardingButton(label: "완료", version: 1) :
-    OnboardingButton(label: "완료", version: 0)
+    OnboardingButton(label: "완료", version: 1).padding(.bottom, 37) :
+    OnboardingButton(label: "완료", version: 0).padding(.bottom, 37)
   }
 }
 
