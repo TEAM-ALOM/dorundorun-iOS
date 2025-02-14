@@ -8,9 +8,9 @@
 import SwiftUI
 
 // MARK: 완료, 네 버튼
-struct OnboardingButton: View {
+public struct OnboardingButton: View {
   
-  init(label: String, version: Int) {
+  public init(label: String, version: Int) {
     self.label = label
     self.version = version
   
@@ -23,7 +23,7 @@ struct OnboardingButton: View {
     }
   }
   
-  var body: some View {
+  public var body: some View {
     ZStack {
       RoundedRectangle(cornerRadius: 50)
         .fill(backColor)
