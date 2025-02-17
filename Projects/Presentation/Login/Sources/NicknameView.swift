@@ -9,7 +9,8 @@ import SwiftUI
 import DesignSystem
 
 struct NicknameView: View {
-  @State var isNicknameCompleted: Bool = false
+  @State private var nickname: String = ""
+  @FocusState private var isKeyboardFocused: Bool
   
   var body: some View {
     VStack {
@@ -40,10 +41,18 @@ struct NicknameView: View {
         .frame(width: .infinity, height: 48)
         .padding(.horizontal, 32)
       
-      Text("사용할 닉네임을 입력해주세요.")
-        .suit(.light, size: 15)
-        .foregroundStyle(Color.nutral500)
+      if ( !isKeyboardFocused ) {
+        Text("사용할 닉네임을 입력해주세요.")
+          .suit(.light, size: 15)
+          .foregroundStyle(Color.nutral500)
+      }
+      TextField("", text: $nickname)
+        .jalnan(.regular, size: 18)
+        .foregroundStyle(Color.nutralBlack)
+        .multilineTextAlignment(.center)
+        .focused($isKeyboardFocused)
     }
+    .padding(.horizontal, 32)
     .padding(.bottom, 91)
     
     isNicknameCompleted ?
