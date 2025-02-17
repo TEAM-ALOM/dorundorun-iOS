@@ -9,6 +9,7 @@ import SwiftUI
 import DesignSystem
 
 struct NicknameView: View {
+  @State private var isNicknameCompleted: Bool = false
   @State private var nickname: String = ""
   @FocusState private var isKeyboardFocused: Bool
   
@@ -53,11 +54,9 @@ struct NicknameView: View {
         .focused($isKeyboardFocused)
     }
     .padding(.horizontal, 32)
-    .padding(.bottom, 91)
-    
     isNicknameCompleted ?
-    OnboardingButton(label: "완료", version: 1).padding(.bottom, 37) :
-    OnboardingButton(label: "완료", version: 0).padding(.bottom, 37)
+    OnboardingButton(label: "완료", version: 1).padding(.bottom, 37).padding(.top, 91) :
+    OnboardingButton(label: "완료", version: 0).padding(.bottom, 37).padding(.top, 91)
   }
   
   private var padding: PaddingState { isKeyboardFocused ? .keyboardActive : .defaultState }
