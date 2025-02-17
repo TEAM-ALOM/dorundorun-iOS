@@ -12,6 +12,7 @@ struct NicknameView: View {
   @State private var isNicknameCompleted: Bool = false
   @State private var nickname: String = ""
   @FocusState private var isKeyboardFocused: Bool
+  @State private var textFieldStrokeColor: Color = Color.primary200
   
   var body: some View {
     VStack {
@@ -37,7 +38,7 @@ struct NicknameView: View {
     
     ZStack {
       RoundedRectangle(cornerRadius: 50)
-        .stroke(Color.primary200, lineWidth: 1)
+        .stroke(textFieldStrokeColor, lineWidth: 1)
         .fill(Color.white)
         .frame(width: .infinity, height: 48)
       
@@ -52,8 +53,24 @@ struct NicknameView: View {
         .foregroundStyle(Color.nutralBlack)
         .multilineTextAlignment(.center)
         .focused($isKeyboardFocused)
+        .padding(.horizontal, 10)
+      
+      if ( nickname.count > 6 ) {
+        Text("6자 이하로 입력해주세요.")
+          .suit(.semiBold, size: 15)
+          .foregroundStyle(Color(red: 1.0, green: 0.376, blue: 0.376, opacity: 1.0))
+          .offset(y: 39)
+      }
     }
     .padding(.horizontal, 32)
+    .onChange(of: nickname) {
+      if nickname.count > 6 {
+        textFieldStrokeColor = Color(red: 1.0, green: 0.376, blue: 0.376, opacity: 1.0)
+      } else {
+        textFieldStrokeColor = Color.primary200
+      }
+    }
+  
     isNicknameCompleted ?
     OnboardingButton(label: "완료", version: 1).padding(.bottom, 37).padding(.top, 91) :
     OnboardingButton(label: "완료", version: 0).padding(.bottom, 37).padding(.top, 91)
