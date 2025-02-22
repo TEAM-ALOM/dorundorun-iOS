@@ -76,8 +76,10 @@ struct NicknameView: View {
   }
   
   func containsSpecialCharacter(_ nickname: String) -> Bool {
-      let allowedCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789가-힣"
-      return nickname.contains { !allowedCharacters.contains($0) }
+    let pattern = "^[a-zA-Z0-9가-힣]+$" // ✅ 영문, 숫자, 완성형 한글만 허용
+    let regex = try! NSRegularExpression(pattern: pattern)
+    
+    return regex.firstMatch(in: nickname, range: NSRange(location: 0, length: nickname.utf16.count)) == nil
   }
 
   private var padding: PaddingState { isKeyboardFocused ? .keyboardActive : .defaultState }
