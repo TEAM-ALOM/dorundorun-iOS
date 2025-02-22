@@ -75,6 +75,11 @@ struct NicknameView: View {
     OnboardingButton(label: "완료", version: 0).padding(.bottom, 37).padding(.top, 91)
   }
   
+  func containsSpecialCharacter(_ nickname: String) -> Bool {
+      let allowedCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789가-힣"
+      return nickname.contains { !allowedCharacters.contains($0) }
+  }
+
   private var padding: PaddingState { isKeyboardFocused ? .keyboardActive : .defaultState }
       
   enum PaddingState {
