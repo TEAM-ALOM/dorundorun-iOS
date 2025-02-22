@@ -7,19 +7,6 @@
 
 import SwiftUI
 
-class RunningViewModel: ObservableObject {
-    @Published var goalDistance: Double = 10.0
-  // 서버에서 받아올 목표 거리
-  @Published var currentDistance: Double = 4.0
-  // 서버에서 받아올 현재 달린 거리
-
-    func updateRunningDistance(newDistance: Double) {
-        withAnimation {
-            self.currentDistance = min(newDistance, goalDistance) // 최대 목표치 이상으로 증가 방지
-        }
-    }
-}
-
 struct RunningProgressView: View {
   
   @StateObject private var viewModel = RunningViewModel()
