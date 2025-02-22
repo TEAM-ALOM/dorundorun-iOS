@@ -13,6 +13,7 @@ struct NicknameView: View {
   @State private var nickname: String = ""
   @FocusState private var isKeyboardFocused: Bool
   @State private var textFieldStrokeColor: Color = Color.primary200
+  @State private var warningMessage: String = ""
   
   var body: some View {
     VStack {
@@ -60,6 +61,11 @@ struct NicknameView: View {
           .foregroundStyle(Color(red: 1.0, green: 0.376, blue: 0.376, opacity: 1.0))
           .offset(y: 39)
       }
+      
+      Text(warningMessage)
+        .suit(.semiBold, size: 15)
+        .foregroundStyle(Color(red: 1.0, green: 0.376, blue: 0.376, opacity: 1.0))
+        .offset(y: 39)
     }
     .padding(.horizontal, 32)
     .onChange(of: nickname) {
@@ -82,6 +88,16 @@ struct NicknameView: View {
     return regex.firstMatch(in: nickname, range: NSRange(location: 0, length: nickname.utf16.count)) == nil
   }
 
+  enum NicknameError: String {
+    case tooLong = "6자 이하로 입력해주세요."
+    case invalidFormat = "영문, 숫자, 완성된 한글 조합만 가능해요."
+    case duplicate = "중복되는 닉네임입니다."
+    
+    var message: String {
+      return self.rawValue
+    }
+  }
+  
   private var padding: PaddingState { isKeyboardFocused ? .keyboardActive : .defaultState }
       
   enum PaddingState {
