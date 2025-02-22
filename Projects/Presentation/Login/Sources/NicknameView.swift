@@ -4,7 +4,6 @@
 //
 //  Created by 박근경 on 2/14/25.
 //
-
 import SwiftUI
 import DesignSystem
 
@@ -56,7 +55,6 @@ struct NicknameView: View {
         .focused($isKeyboardFocused)
         .padding(.horizontal, 10)
       
-      
       Text(warningMessage)
         .frame(height: 15)
         .suit(.semiBold, size: 15)
@@ -67,10 +65,14 @@ struct NicknameView: View {
     .onChange(of: nickname) {
       validateNickname()
     }
-  
-    isNicknameCompleted ?
-    OnboardingButton(label: "완료", version: 1).padding(.bottom, 37).padding(.top, 91) :
-    OnboardingButton(label: "완료", version: 0).padding(.bottom, 37).padding(.top, 91)
+    
+    Button {
+      // store로 action 전달 필요
+    } label: {
+      isNicknameCompleted ?
+      OnboardingButton(label: "완료", version: 1).padding(.bottom, 37).padding(.top, 91) :
+      OnboardingButton(label: "완료", version: 0).padding(.bottom, 37).padding(.top, 91)
+    }
   }
 }
 
