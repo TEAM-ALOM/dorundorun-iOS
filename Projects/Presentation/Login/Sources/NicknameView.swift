@@ -42,7 +42,7 @@ struct NicknameView: View {
         .fill(Color.white)
         .frame(width: .infinity, height: 48)
       
-      if ( !isKeyboardFocused ) {
+      if ( nickname.isEmpty ) {
         Text("사용할 닉네임을 입력해주세요.")
           .suit(.light, size: 15)
           .foregroundStyle(Color.nutral500)
@@ -55,12 +55,6 @@ struct NicknameView: View {
         .focused($isKeyboardFocused)
         .padding(.horizontal, 10)
       
-      if ( nickname.count > 6 ) {
-        Text("6자 이하로 입력해주세요.")
-          .suit(.semiBold, size: 15)
-          .foregroundStyle(Color(red: 1.0, green: 0.376, blue: 0.376, opacity: 1.0))
-          .offset(y: 39)
-      }
       
       Text(warningMessage)
         .suit(.semiBold, size: 15)
@@ -69,16 +63,32 @@ struct NicknameView: View {
     }
     .padding(.horizontal, 32)
     .onChange(of: nickname) {
-      if nickname.count > 6 {
-        textFieldStrokeColor = Color(red: 1.0, green: 0.376, blue: 0.376, opacity: 1.0)
-      } else {
-        textFieldStrokeColor = Color.primary200
-      }
+      validateNickname()
     }
   
     isNicknameCompleted ?
     OnboardingButton(label: "완료", version: 1).padding(.bottom, 37).padding(.top, 91) :
     OnboardingButton(label: "완료", version: 0).padding(.bottom, 37).padding(.top, 91)
+  }
+  
+  func validateNickname() {
+    if nickname.count > 6 {
+      setNicknameState(isValid: false, strokeColor: Color(red: 1.0, green: 0.376, blue: 0.376, opacity: 1.0), message: NicknameError.tooLong.message)
+    } else if !nickname.isEmpty {
+      if !containsSpecialCharacter(nickname) {
+        setNicknameState(isValid: true, strokeColor: Color.primary200, message: nil)
+      } else {
+        setNicknameState(isValid: false, strokeColor: Color.primary200, message: NicknameError.invalidFormat.message)
+      }
+    } else {
+        setNicknameState(isValid: false, strokeColor: Color.primary200, message: nil)
+    }
+  }
+  
+  func setNicknameState(isValid: Bool, strokeColor: Color, message: String?) {
+    isNicknameCompleted = isValid
+    textFieldStrokeColor = strokeColor
+    warningMessage = message ?? ""
   }
   
   func containsSpecialCharacter(_ nickname: String) -> Bool {
@@ -87,7 +97,7 @@ struct NicknameView: View {
     
     return regex.firstMatch(in: nickname, range: NSRange(location: 0, length: nickname.utf16.count)) == nil
   }
-
+  
   enum NicknameError: String {
     case tooLong = "6자 이하로 입력해주세요."
     case invalidFormat = "영문, 숫자, 완성된 한글 조합만 가능해요."
