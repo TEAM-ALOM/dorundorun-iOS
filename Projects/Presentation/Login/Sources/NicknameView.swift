@@ -133,7 +133,7 @@ private extension NicknameView {
       if !containsSpecialCharacter(nickname) {
         setNicknameState(isValid: true, strokeColor: Color.primary200, message: nil)
       } else {
-        setNicknameState(isValid: false, strokeColor: Color.primary200, message: NicknameError.invalidFormat.message)
+        setNicknameState(isValid: false, strokeColor: Color(red: 1.0, green: 0.376, blue: 0.376, opacity: 1.0), message: NicknameError.invalidFormat.message)
       }
     } else {
         setNicknameState(isValid: false, strokeColor: Color.primary200, message: nil)
