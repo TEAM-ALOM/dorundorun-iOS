@@ -14,7 +14,7 @@ struct TopBarView: View {
     var body: some View {
       HStack {
         Text("두런두런")
-          .font(DesignSystemFontFamily.Jalnan2.regular.swiftUIFont(size: 20))
+          .jalnan(.regular, size: 26)
           .foregroundStyle(Color.primary200)
           .padding(.leading, 15)
         
@@ -30,7 +30,7 @@ struct TopBarView: View {
             Text(userCoin)
             Text("+")
           }
-          .font(DesignSystemFontFamily.Jalnan2.regular.swiftUIFont(size: 15))
+          .jalnan(.regular, size: 15)
           .foregroundStyle(Color.primary200)
          }
         .padding(.trailing, 15)

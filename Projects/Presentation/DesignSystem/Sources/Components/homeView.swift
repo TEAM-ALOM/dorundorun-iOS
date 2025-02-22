@@ -31,7 +31,7 @@ struct homeView: View {
         .padding(.bottom, 23)
         
         Text(userAchievements)
-          .font(DesignSystemFontFamily.Suit.medium.swiftUIFont(size: 10))
+          .suit(.medium, size: 10)
           .foregroundStyle(Color.nutral600)
           .frame(width: 118, height: 36)
           .background(
@@ -47,7 +47,7 @@ struct homeView: View {
           // 티어
           
           Text(userNickname)
-            .font(DesignSystemFontFamily.Jalnan2.regular.swiftUIFont(size: 18))
+            .jalnan(.regular, size: 18)
             .foregroundStyle(Color.primary200)
             // 닉네임
         }
@@ -60,7 +60,6 @@ struct homeView: View {
         // 캐릭터
         
         RunningProgressView()
-//          .frame(width: 188, height: 22)
           .padding(.bottom, 16)
         // 목표
         
@@ -68,7 +67,7 @@ struct homeView: View {
           isRunning.toggle()
         }) {
           Text(isRunning ? "러닝 중" : "러닝 시작")
-            .font(DesignSystemFontFamily.Jalnan2.regular.swiftUIFont(size: 22))
+            .jalnan(.regular, size: 22)
             .foregroundStyle(isRunning ? Color.nutralWhite : Color.primary200)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
@@ -82,7 +81,7 @@ struct homeView: View {
         .padding(.bottom, 12)
 
         Text("목표가 얼마 남지 않았어요!")
-          .font(DesignSystemFontFamily.Suit.medium.swiftUIFont(size: 10))
+          .suit(.medium, size: 10)
           .foregroundStyle(Color.nutral600)
           .padding(.bottom, 32)
       }
