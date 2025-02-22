@@ -23,10 +23,9 @@ struct NicknameView: View {
         Text("안녕하세요!")
           .padding(.bottom, PaddingState.defaultState.firstTextPadding)
         
-        // 온보딩 캐릭터 파일 추가가 안됨 - 임시로 넣어둠
-        Rectangle()
+        // 이미지 파일이 원본과 다르게 나옴 - 테두리가 사라지는 문제
+        Image(asset: DesignSystemAsset.Icons.onboardingCharacter217)
           .frame(width: 217, height: 217)
-          .foregroundStyle(Color.black)
           .padding(.bottom, PaddingState.defaultState.imagePadding)
         
         Text("여러분과 함께 러닝을 하게 될")
