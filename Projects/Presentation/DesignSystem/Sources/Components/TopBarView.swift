@@ -32,7 +32,7 @@ struct TopBarView: View {
           }
           .jalnan(.regular, size: 15)
           .foregroundStyle(Color.primary200)
-         }
+        }
         .padding(.trailing, 15)
       }
       .padding(.bottom, 11)
