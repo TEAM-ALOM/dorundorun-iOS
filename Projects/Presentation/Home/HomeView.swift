@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
+import DesignSystem
 
-struct homeView: View {
+struct HomeView: View {
 
   @State private var isRunning = false
   @State private var userAchievements: String = "유저 업적"
   @State private var userNickname: String = "탱강이"
-//  @State private var userTier: String = "tierImage"
+  @State private var userTier: String = "tierImage"
   // 티어 이미지 확정 및 추가되면 수정할 부분
   
     var body: some View {
@@ -89,5 +90,5 @@ struct homeView: View {
 }
 
 #Preview {
-    homeView()
+    HomeView()
 }

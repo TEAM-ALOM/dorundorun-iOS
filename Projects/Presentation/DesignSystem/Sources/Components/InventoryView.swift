@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct inventoryView: View {
+struct InventoryView: View {
     var body: some View {
       Text("창고 화면")
       .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -15,5 +15,5 @@ struct inventoryView: View {
 }
 
 #Preview {
-    inventoryView()
+    InventoryView()
 }
