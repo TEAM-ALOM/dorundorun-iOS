@@ -22,7 +22,7 @@ struct TabbarView: View {
     VStack(spacing: 0) {
       switch seletedTab {
       case .home:
-        homeView()
+        HomeView()
       case .doodleRun:
         doodleRunView()
       case .market:
