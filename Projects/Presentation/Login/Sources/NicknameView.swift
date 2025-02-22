@@ -58,6 +58,7 @@ struct NicknameView: View {
       
       
       Text(warningMessage)
+        .frame(height: 15)
         .suit(.semiBold, size: 15)
         .foregroundStyle(Color(red: 1.0, green: 0.376, blue: 0.376, opacity: 1.0))
         .offset(y: 39)
