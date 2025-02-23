@@ -13,7 +13,7 @@ struct RunningProgressView: View {
     var body: some View {
       HStack {
         Text("\(Int(viewModel.goalDistance))km 러닝")
-          .font(DesignSystemFontFamily.Jalnan2.regular.swiftUIFont(size: 13))
+          .jalnan(.regular, size: 13)
           .foregroundStyle(Color.primary200)
           .padding(.trailing, 16)
         
