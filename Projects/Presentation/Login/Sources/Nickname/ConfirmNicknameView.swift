@@ -16,6 +16,12 @@ struct ConfirmNicknameView: View {
       .frame(width: 217, height: 217)
     
     styledText("사용가능한 닉네임이에요!\n이 닉네임으로 하시겠어요?")
+    
+    Button {
+      // store로 action 전달 필요
+    } label: {
+      OnboardingButton(label: "네", version: 1)
+    }
   }
 }
 
