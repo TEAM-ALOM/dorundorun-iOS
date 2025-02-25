@@ -8,11 +8,8 @@ import SwiftUI
 import DesignSystem
 
 struct NicknameView: View {
-  @State private var nickname: String = ""
-  @State private var isNicknameCompleted: Bool = false
+  @StateObject private var nicknameField = NicknameTextField()
   @FocusState private var isKeyboardFocused: Bool
-  @State private var textFieldStrokeColor: Color = Color.primary200
-  @State private var warningMessage: String = ""
   private var padding: PaddingState { isKeyboardFocused ? .keyboardActive : .defaultState }
   
   var body: some View {
@@ -38,82 +35,108 @@ struct NicknameView: View {
     
     ZStack {
       RoundedRectangle(cornerRadius: 50)
-        .stroke(textFieldStrokeColor, lineWidth: 1)
+        .stroke(nicknameField.textFieldStyle.strokeColor, lineWidth: 1)
         .fill(Color.white)
         .frame(width: .infinity, height: 48)
       
-      if ( nickname.isEmpty ) {
+      if nicknameField.nickname.isEmpty {
         Text("사용할 닉네임을 입력해주세요.")
           .suit(.light, size: 15)
           .foregroundStyle(Color.nutral500)
       }
       
-      TextField("", text: $nickname)
+      TextField("", text: $nicknameField.nickname)
         .jalnan(.regular, size: 18)
         .foregroundStyle(Color.nutralBlack)
         .multilineTextAlignment(.center)
-        .focused($isKeyboardFocused)
         .padding(.horizontal, 10)
+        .focused($isKeyboardFocused)
+        .onChange(of: nicknameField.nickname) {
+          nicknameField.validateNickname()
+        }
       
-      Text(warningMessage)
+      Text(nicknameField.warningMessage.text)
         .frame(height: 15)
         .suit(.semiBold, size: 15)
         .foregroundStyle(Color(red: 1.0, green: 0.376, blue: 0.376, opacity: 1.0))
         .offset(y: 39)
     }
     .padding(.horizontal, 32)
-    .onChange(of: nickname) {
-      validateNickname()
-    }
     
     Button {
       // store로 action 전달 필요
     } label: {
-      isNicknameCompleted ?
+      nicknameField.isNicknameCompleted ?
       OnboardingButton(label: "완료", version: 1).padding(.bottom, 37).padding(.top, 91) :
       OnboardingButton(label: "완료", version: 0).padding(.bottom, 37).padding(.top, 91)
     }
   }
 }
 
-// 키보드 상태에 따른 패딩 값
-private extension NicknameView {
-  enum PaddingState {
-    case defaultState
-    case keyboardActive
+// ➕ 닉네임 입력과 관련된 로직 캡슐화
+extension NicknameView {
+  // 닉네임 입력 상태 관리
+  private class NicknameTextField: ObservableObject {
+    @Published var nickname: String = ""
+    @Published var isNicknameCompleted: Bool = false
+    @Published var textFieldStyle: NicknameTextFieldStyle = NicknameTextFieldStyle()
+    @Published var warningMessage: NicknameWarningMessage = NicknameWarningMessage()
+    
+    func validateNickname() {
+      guard !nickname.isEmpty else {
+        resetValidation()
+        return
+      }
       
-    var firstTextPadding: CGFloat {
-      switch self {
-      case .defaultState:
-        return 48
-      case .keyboardActive:
-        return 20
+      if nickname.count > 6 {
+        updateValidation(error: .tooLong)
+      } else if containsSpecialCharacter(nickname) {
+        updateValidation(error: .invalidFormat)
+      } else {
+        updateValidation(error: nil)
       }
     }
     
-    var secondTextPadding: CGFloat {
-      switch self {
-      case .defaultState:
-        return 24
-      case .keyboardActive:
-        return 16
-      }
+    private func resetValidation() {
+      warningMessage.updateMessage(for: nil)
+      textFieldStyle.updateUI(isError: false)
+      isNicknameCompleted = false
     }
     
-    var imagePadding: CGFloat {
-      switch self {
-      case .defaultState:
-        return 72
-      case .keyboardActive:
-        return 32
-      }
+    private func updateValidation(error: NicknameError?) {
+      warningMessage.updateMessage(for: error)
+      textFieldStyle.updateUI(isError: error != nil)
+      isNicknameCompleted = (error == nil)
+    }
+    
+    private func containsSpecialCharacter(_ nickname: String) -> Bool {
+      let pattern = "^[a-zA-Z0-9가-힣]+$"
+      let regex = try! NSRegularExpression(pattern: pattern)
+      return regex.firstMatch(in: nickname, range: NSRange(location: 0, length: nickname.utf16.count)) == nil
     }
   }
-}
-
-// 닉네임 검증 오류 메시지
-private extension NicknameView {
-  enum NicknameError: String {
+  
+  // 닉네임 입력 필드 UI 관리
+  private class NicknameTextFieldStyle: ObservableObject {
+    @Published var strokeColor: Color = .primary200
+    
+    func updateUI(isError: Bool) {
+      self.strokeColor = isError ? Color.red : Color.primary200
+    }
+  }
+  
+  // 경고 메시지 관리
+  private class NicknameWarningMessage: ObservableObject {
+    @Published var text: String = ""
+    
+    func updateMessage(for error: NicknameError?) {
+      self.text = error?.message ?? ""
+    }
+    
+  }
+  
+  // 경고 메시지 Enum
+  private enum NicknameError: String {
     case tooLong = "6자 이하로 입력해주세요."
     case invalidFormat = "영문, 숫자, 완성된 한글 조합만 가능해요."
     case duplicate = "중복되는 닉네임입니다."
@@ -126,31 +149,7 @@ private extension NicknameView {
 
 // 닉네임 검증 관련 로직
 private extension NicknameView {
-  func validateNickname() {
-    if nickname.count > 6 {
-      setNicknameState(isValid: false, strokeColor: Color(red: 1.0, green: 0.376, blue: 0.376, opacity: 1.0), message: NicknameError.tooLong.message)
-    } else if !nickname.isEmpty {
-      if !containsSpecialCharacter(nickname) {
-        setNicknameState(isValid: true, strokeColor: Color.primary200, message: nil)
-      } else {
-        setNicknameState(isValid: false, strokeColor: Color(red: 1.0, green: 0.376, blue: 0.376, opacity: 1.0), message: NicknameError.invalidFormat.message)
-      }
-    } else {
-        setNicknameState(isValid: false, strokeColor: Color.primary200, message: nil)
-    }
-  }
-  
-  func setNicknameState(isValid: Bool, strokeColor: Color, message: String?) {
-    isNicknameCompleted = isValid
-    textFieldStrokeColor = strokeColor
-    warningMessage = message ?? ""
-  }
-  
-  func containsSpecialCharacter(_ nickname: String) -> Bool {
-    let pattern = "^[a-zA-Z0-9가-힣]+$" // ✅ 영문, 숫자, 완성형 한글만 허용
-    let regex = try! NSRegularExpression(pattern: pattern)
     
-    return regex.firstMatch(in: nickname, range: NSRange(location: 0, length: nickname.utf16.count)) == nil
   }
 }
 
