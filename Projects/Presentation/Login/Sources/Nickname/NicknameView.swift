@@ -147,9 +147,15 @@ extension NicknameView {
   }
 }
 
-// 닉네임 검증 관련 로직
+// ➕ 키보드 상태에 따른 패딩 값
 private extension NicknameView {
+  struct PaddingState {
+    let firstTextPadding: CGFloat
+    let secondTextPadding: CGFloat
+    let imagePadding: CGFloat
     
+    static let defaultState = PaddingState(firstTextPadding: 48, secondTextPadding: 24, imagePadding: 72)
+    static let keyboardActive = PaddingState(firstTextPadding: 20, secondTextPadding: 16, imagePadding: 32)
   }
 }
 
