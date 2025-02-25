@@ -12,6 +12,9 @@ struct ConfirmNicknameView: View {
   var body: some View {
     styledText("탱강이")
     
+    Image(asset: DesignSystemAsset.Icons.onboardingCharacter217)
+      .frame(width: 217, height: 217)
+    
     styledText("사용가능한 닉네임이에요!\n이 닉네임으로 하시겠어요?")
   }
 }
