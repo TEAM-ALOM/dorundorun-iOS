@@ -10,12 +10,17 @@ import DesignSystem
 
 struct ConfirmNicknameView: View {
   var body: some View {
+    Spacer()
+    
     styledText("탱강이")
+      .padding(.bottom, 48)
     
     Image(asset: DesignSystemAsset.Icons.onboardingCharacter217)
       .frame(width: 217, height: 217)
+      .padding(.bottom, 72)
     
     styledText("사용가능한 닉네임이에요!\n이 닉네임으로 하시겠어요?")
+      .padding(.bottom, 137)
     
     Button {
       // store로 action 전달 필요
