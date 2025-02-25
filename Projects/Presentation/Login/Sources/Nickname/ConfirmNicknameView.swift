@@ -10,13 +10,19 @@ import DesignSystem
 
 struct ConfirmNicknameView: View {
   var body: some View {
-    Text("탱강이")
-      .jalnan(.regular, size: 18)
-      .foregroundStyle(Color.primary200)
+    styledText("탱강이")
     
-    Text("사용가능한 닉네임이에요.\n이 닉네임으로 하시겠어요?")
+    styledText("사용가능한 닉네임이에요!\n이 닉네임으로 하시겠어요?")
+  }
+}
+
+// 동일한 속성의 텍스트를 함수로 사용
+private extension ConfirmNicknameView {
+  func styledText(_ text: String, color: Color = Color.primary200) -> some View {
+    Text(text)
       .jalnan(.regular, size: 18)
-      .foregroundStyle(Color.primary200)
+      .foregroundStyle(color)
+      .multilineTextAlignment(.center)
   }
 }
 
