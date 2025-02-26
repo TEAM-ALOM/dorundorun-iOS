@@ -19,22 +19,31 @@ struct TabbarView: View {
   @State var seletedTab: Tab = .home
   
   var body: some View {
-    VStack(spacing: 0) {
-      switch seletedTab {
-      case .home:
-        HomeView()
-      case .doodleRun:
-        doodleRunView()
-      case .market:
-        marketView()
-      case .myPage:
-        myPageView()
+    GeometryReader { geometry in
+      ZStack(alignment: .bottom) {
+        VStack(spacing: 0) {
+          switch seletedTab {
+          case .home:
+            HomeView()
+              .ignoresSafeArea()
+          case .doodleRun:
+            doodleRunView()
+              .ignoresSafeArea()
+          case .market:
+            marketView()
+              .ignoresSafeArea()
+          case .myPage:
+            myPageView()
+              .ignoresSafeArea()
+          }
+        }
+        .frame(width: geometry.size.width, height: geometry.size.height)
+        
+        CustomTabView(selectedTab: $seletedTab)
+          .background(Color.nutralWhite)
       }
-      CustomTabView(selectedTab: $seletedTab)
-        .frame(maxWidth: .infinity)
-        .background(Color.nutralWhite)
     }
-    .edgesIgnoringSafeArea(.bottom)
+    .ignoresSafeArea()
   }
 }
 
