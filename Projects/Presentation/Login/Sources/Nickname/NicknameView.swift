@@ -66,10 +66,10 @@ struct NicknameView: View {
     Button {
       // store로 action 전달 필요
     } label: {
-      nicknameField.isNicknameCompleted ?
-      OnboardingButton(label: "완료", version: 1).padding(.bottom, 37).padding(.top, 91) :
-      OnboardingButton(label: "완료", version: 0).padding(.bottom, 37).padding(.top, 91)
+      OnboardingButton(label: "완료", activate: nicknameField.submitButtonState.isEnabled).padding(.bottom, 37)
+        .padding(.top, 91)
     }
+    .disabled(!nicknameField.submitButtonState.isEnabled)
   }
 }
 
@@ -81,6 +81,7 @@ extension NicknameView {
     @Published var isNicknameCompleted: Bool = false
     @Published var textFieldStyle: NicknameTextFieldStyle = NicknameTextFieldStyle()
     @Published var warningMessage: NicknameWarningMessage = NicknameWarningMessage()
+    @Published var submitButtonState: SubmitButtonState = SubmitButtonState()
     
     func validateNickname() {
       guard !nickname.isEmpty else {
@@ -95,6 +96,8 @@ extension NicknameView {
       } else {
         updateValidation(error: nil)
       }
+      
+      submitButtonState.updateState(isNicknameValid: isNicknameCompleted)
     }
     
     private func resetValidation() {
@@ -132,7 +135,6 @@ extension NicknameView {
     func updateMessage(for error: NicknameError?) {
       self.text = error?.message ?? ""
     }
-    
   }
   
   // 경고 메시지 Enum
@@ -143,6 +145,14 @@ extension NicknameView {
     
     var message: String {
       return self.rawValue
+    }
+  }
+  
+  struct SubmitButtonState {
+    var isEnabled: Bool = false
+    
+    mutating func updateState(isNicknameValid: Bool) {
+      self.isEnabled = isNicknameValid
     }
   }
 }
