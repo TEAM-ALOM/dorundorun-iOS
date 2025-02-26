@@ -8,10 +8,14 @@
 import SwiftUI
 
 struct myPageView: View {
-    var body: some View {
-        Text("마이페이지 화면")
+  var body: some View {
+    VStack {
+      TopBarView()
+      
+      Text("마이페이지 화면")
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
+  }
 }
 
 #Preview {
