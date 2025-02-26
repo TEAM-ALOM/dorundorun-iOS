@@ -58,7 +58,6 @@ struct CustomTabView: View {
     }
     .frame(height: 92)
     .edgesIgnoringSafeArea(.bottom)
-    .padding(.bottom, 28)
   }
 }
 
