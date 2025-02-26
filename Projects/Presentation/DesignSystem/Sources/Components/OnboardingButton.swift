@@ -10,11 +10,10 @@ import SwiftUI
 // MARK: 완료, 네 버튼
 public struct OnboardingButton: View {
   
-  public init(label: String, version: Int) {
+  public init(label: String, activate: Bool) {
     self.label = label
-    self.version = version
-  
-    if version == 1 {
+    self.activate = activate
+    if activate == true {
       self.fontColor = .nutralWhite
       self.backColor = .primary200
     } else {
@@ -37,13 +36,13 @@ public struct OnboardingButton: View {
   }
   
   private let label: String
-  private let version: Int
+  private let activate: Bool
   private var fontColor: Color
   private var backColor: Color
 }
 
 #Preview {
-  OnboardingButton(label: "완료", version: 1)
-  OnboardingButton(label: "완료", version: 0)
-  OnboardingButton(label: "네", version: 1)
+  OnboardingButton(label: "완료", activate: true)
+  OnboardingButton(label: "완료", activate: false)
+  OnboardingButton(label: "네", activate: true)
 }
