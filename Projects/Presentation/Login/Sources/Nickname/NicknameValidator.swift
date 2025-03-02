@@ -1,5 +1,5 @@
 //
-//  NicknameValidaotr.swift
+//  NicknameValidator.swift
 //  Login
 //
 //  Created by 박근경 on 2/27/25.
