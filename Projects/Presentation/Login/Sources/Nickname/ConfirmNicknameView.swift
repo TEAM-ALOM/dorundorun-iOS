@@ -15,7 +15,7 @@ struct ConfirmNicknameView: View {
     } label: {
       BackButton()
     }
-    
+  
     Spacer()
     
     styledText("탱강이")
