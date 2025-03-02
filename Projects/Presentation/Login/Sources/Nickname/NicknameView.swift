@@ -88,38 +88,9 @@ extension NicknameView {
     func validateNickname() {
       let validationResult = validator.validate(nickname: nickname)
       
-      updateWarningMessage(for: validationResult)
-      updateTextFieldStyle(for: validationResult)
-      updateSubmitButtonState(for: validationResult)
-    }
-    
-    private func updateWarningMessage(for result: NicknameValidationResult) {
-      switch result {
-      case .valid:
-        warningMessage.updateMessage(for: nil)
-      case .invalid(let reason):
-        warningMessage.updateMessage(for: reason)
-      case .reset:
-        warningMessage.updateMessage(for: nil)
-      }
-    }
-    
-    private func updateTextFieldStyle(for result: NicknameValidationResult) {
-      switch result {
-      case .valid, .reset:
-        textFieldStyle.updateUI(isError: false)
-      case .invalid:
-        textFieldStyle.updateUI(isError: true)
-      }
-    }
-    
-    private func updateSubmitButtonState(for result: NicknameValidationResult) {
-      switch result {
-      case .valid:
-        submitButtonState.updateState(isNicknameValid: true)
-      case .invalid, .reset:
-        submitButtonState.updateState(isNicknameValid: false)
-      }
+      warningMessage.updateMessage(for: validationResult)
+      textFieldStyle.updateUI(for: validationResult)
+      submitButtonState.updateState(for: validationResult)
     }
   }
   
@@ -127,17 +98,27 @@ extension NicknameView {
   private struct NicknameTextFieldStyle {
     var strokeColor: Color = .primary200
     
-    mutating func updateUI(isError: Bool) {
-      self.strokeColor = isError ? Color(red: 1.0, green: 0.376, blue: 0.376, opacity: 1.0) : Color.primary200
+    mutating func updateUI(for result: NicknameValidationResult) {
+      switch result {
+      case .valid, .reset:
+        self.strokeColor = Color.primary200
+      case .invalid:
+        self.strokeColor = Color(red: 1.0, green: 0.376, blue: 0.376, opacity: 1.0)
+      }
     }
   }
   
-  // 경고 메시지 관리
+  // 경고 메시지 문구 변경
   private struct NicknameWarningMessage {
     var text: String = ""
     
-    mutating func updateMessage(for error: NicknameError?) {
-      self.text = error?.message ?? ""
+    mutating func updateMessage(for result: NicknameValidationResult) {
+      switch result {
+      case .valid, .reset:
+        self.text = ""
+      case .invalid(let reason):
+        self.text = reason?.message ?? ""
+      }
     }
   }
   
@@ -145,8 +126,13 @@ extension NicknameView {
   struct SubmitButtonState {
     var isEnabled: Bool = false
     
-    mutating func updateState(isNicknameValid: Bool) {
-      self.isEnabled = isNicknameValid
+    mutating func updateState(for result: NicknameValidationResult) {
+      switch result {
+      case .valid:
+        self.isEnabled = true
+      case .invalid, .reset:
+        self.isEnabled = false
+      }
     }
   }
 }
