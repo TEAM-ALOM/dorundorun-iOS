@@ -96,14 +96,17 @@ extension NicknameView {
   
   // 닉네임 입력 필드 UI 관리
   private struct NicknameTextFieldStyle {
-    var strokeColor: Color = .primary200
+    private static let errorColor = Color(red: 1.0, green: 0.376, blue: 0.376, opacity: 1.0)
+    private static let defaultColor = Color.primary200
+    
+    var strokeColor: Color = defaultColor
     
     mutating func updateUI(for result: NicknameValidationResult) {
       switch result {
       case .valid, .reset:
-        self.strokeColor = Color.primary200
+        self.strokeColor = NicknameTextFieldStyle.defaultColor
       case .invalid:
-        self.strokeColor = Color(red: 1.0, green: 0.376, blue: 0.376, opacity: 1.0)
+        self.strokeColor = NicknameTextFieldStyle.errorColor
       }
     }
   }
@@ -113,12 +116,7 @@ extension NicknameView {
     var text: String = ""
     
     mutating func updateMessage(for result: NicknameValidationResult) {
-      switch result {
-      case .valid, .reset:
-        self.text = ""
-      case .invalid(let reason):
-        self.text = reason?.message ?? ""
-      }
+      self.text = (result.errorMessage ?? "")
     }
   }
   
@@ -127,12 +125,7 @@ extension NicknameView {
     var isEnabled: Bool = false
     
     mutating func updateState(for result: NicknameValidationResult) {
-      switch result {
-      case .valid:
-        self.isEnabled = true
-      case .invalid, .reset:
-        self.isEnabled = false
-      }
+      self.isEnabled = (result == .valid)
     }
   }
 }

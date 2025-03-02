@@ -38,8 +38,17 @@ enum NicknameError: String {
   }
 }
 
-enum NicknameValidationResult {
+enum NicknameValidationResult: Equatable {
   case valid
   case invalid(reason: NicknameError?)
   case reset
+  
+  var errorMessage: String? {
+    switch self {
+    case .valid, .reset:
+      return nil
+    case .invalid(let reason):
+      return reason?.message
+    }
+  }
 }
