@@ -10,6 +10,12 @@ import DesignSystem
 
 struct ConfirmNicknameView: View {
   var body: some View {
+    Button {
+      // store로 action 전달 필요
+    } label: {
+      BackButton()
+    }
+    
     Spacer()
     
     styledText("탱강이")
