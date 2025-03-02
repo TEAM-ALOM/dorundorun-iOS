@@ -31,7 +31,7 @@ struct ConfirmNicknameView: View {
     Button {
       // store로 action 전달 필요
     } label: {
-      OnboardingButton(label: "네", version: 1)
+      OnboardingButton(label: "네", activate: true)
     }
   }
 }
