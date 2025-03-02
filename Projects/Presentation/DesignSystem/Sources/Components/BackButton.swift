@@ -7,9 +7,18 @@
 
 import SwiftUI
 
-struct BackButton: View {
-  var body: some View {
-    Text(">")
+public struct BackButton: View {
+  public init() {}
+  
+  public var body: some View {
+    HStack {
+      Image(asset: DesignSystemAsset.Icons.backBlack20)
+        .frame(width: 20, height: 20)
+        .padding(.leading, 16)
+        .padding(.top, 63)
+      Spacer()
+    }
+    .ignoresSafeArea()
   }
 }
 
