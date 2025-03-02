@@ -8,7 +8,7 @@ import SwiftUI
 import DesignSystem
 
 struct NicknameView: View {
-  @StateObject private var nicknameField = NicknameTextField()
+  @StateObject private var nicknameField = NicknameTextFieldManager()
   @FocusState private var isKeyboardFocused: Bool
   private var padding: PaddingState { isKeyboardFocused ? .keyboardActive : .defaultState }
   
@@ -76,61 +76,72 @@ struct NicknameView: View {
 // ➕ 닉네임 입력과 관련된 로직 캡슐화
 extension NicknameView {
   // 닉네임 입력 상태 관리
-  private class NicknameTextField: ObservableObject {
+  private class NicknameTextFieldManager: ObservableObject {
     @Published var nickname: String = ""
     @Published var isNicknameCompleted: Bool = false
-    @Published var textFieldStyle: NicknameTextFieldStyle = NicknameTextFieldStyle()
     @Published var warningMessage: NicknameWarningMessage = NicknameWarningMessage()
+    @Published var textFieldStyle: NicknameTextFieldStyle = NicknameTextFieldStyle()
     @Published var submitButtonState: SubmitButtonState = SubmitButtonState()
     
+    private let validator = NicknameValidator()
+    
     func validateNickname() {
-      guard !nickname.isEmpty else {
-        resetValidation()
-        return
-      }
+      let validationResult = validator.validate(nickname: nickname)
       
-      if nickname.count > 6 {
-        updateValidation(error: .tooLong)
-      } else if containsSpecialCharacter(nickname) {
-        updateValidation(error: .invalidFormat)
-      } else {
-        updateValidation(error: nil)
-      }
-      
-      submitButtonState.updateState(isNicknameValid: isNicknameCompleted)
+      updateWarningMessage(for: validationResult)
+      updateTextFieldStyle(for: validationResult)
+      updateSubmitButtonState(for: validationResult)
     }
     
-    private func resetValidation() {
-      warningMessage.updateMessage(for: nil)
-      textFieldStyle.updateUI(isError: false)
-      isNicknameCompleted = false
+    private func updateWarningMessage(for result: NicknameValidationResult) {
+      switch result {
+      case .valid:
+        warningMessage.updateMessage(for: nil)
+      case .invalid(let reason):
+        warningMessage.updateMessage(for: reason)
+      case .reset:
+        warningMessage.updateMessage(for: nil)
+      }
     }
     
-    private func updateValidation(error: NicknameError?) {
-      warningMessage.updateMessage(for: error)
-      textFieldStyle.updateUI(isError: error != nil)
-      isNicknameCompleted = (error == nil)
+    private func updateTextFieldStyle(for result: NicknameValidationResult) {
+      switch result {
+      case .valid, .reset:
+        textFieldStyle.updateUI(isError: false)
+      case .invalid:
+        textFieldStyle.updateUI(isError: true)
+      }
+    }
+    
+    private func updateSubmitButtonState(for result: NicknameValidationResult) {
+      switch result {
+      case .valid:
+        submitButtonState.updateState(isNicknameValid: true)
+      case .invalid, .reset:
+        submitButtonState.updateState(isNicknameValid: false)
+      }
     }
   }
   
   // 닉네임 입력 필드 UI 관리
-  private class NicknameTextFieldStyle: ObservableObject {
-    @Published var strokeColor: Color = .primary200
+  private struct NicknameTextFieldStyle {
+    var strokeColor: Color = .primary200
     
-    func updateUI(isError: Bool) {
-      self.strokeColor = isError ? Color.red : Color.primary200
+    mutating func updateUI(isError: Bool) {
+      self.strokeColor = isError ? Color(red: 1.0, green: 0.376, blue: 0.376, opacity: 1.0) : Color.primary200
     }
   }
   
   // 경고 메시지 관리
-  private class NicknameWarningMessage: ObservableObject {
-    @Published var text: String = ""
+  private struct NicknameWarningMessage {
+    var text: String = ""
     
-    func updateMessage(for error: NicknameError?) {
+    mutating func updateMessage(for error: NicknameError?) {
       self.text = error?.message ?? ""
     }
   }
   
+  // 완료 버튼 관리
   struct SubmitButtonState {
     var isEnabled: Bool = false
     
