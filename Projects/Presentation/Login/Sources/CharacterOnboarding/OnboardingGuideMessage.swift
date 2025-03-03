@@ -5,6 +5,8 @@
 //  Created by 박근경 on 3/3/25.
 //
 
+import SwiftUI
+
 enum OnboardingGuideMessage {
   case introduction(nickname: String)
   case selectPants
@@ -21,6 +23,31 @@ enum OnboardingGuideMessage {
       return "마지막으로 배경색을 선택해주세요!"
     case .finalWelcome:
       return "이제 달릴 준비가 되었어요!"
+    }
+  }
+}
+
+class OnboardingGuideMessageManager: ObservableObject {
+  @Published var guideMessage: OnboardingGuideMessage
+  
+  init(guideMessage: OnboardingGuideMessage) {
+    self.guideMessage = guideMessage
+  }
+  
+  func updateOnboardingMessage(after seconds: Double, message: OnboardingGuideMessage) async {
+    let nanoseconds = UInt64(seconds * 1_000_000_000)
+    
+    do {
+      try await Task.sleep(nanoseconds: nanoseconds)
+      
+      await MainActor.run {
+        guard !Task.isCancelled else { return }
+        withAnimation {
+          self.guideMessage = message
+        }
+      }
+    } catch {
+      print("Task.sleep 오류 발생: \(error)")
     }
   }
 }
