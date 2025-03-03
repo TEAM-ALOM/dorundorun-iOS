@@ -21,7 +21,7 @@ struct CharacterPantsIntroView: View {
   var body: some View {
     VStack {
       Spacer()
-        .frame(height: 137)
+        .frame(height: 191)
       
       styledText(nickname)
         .padding(.bottom, 48)
