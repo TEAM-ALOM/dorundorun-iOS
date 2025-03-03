@@ -10,7 +10,11 @@ import DesignSystem
 
 struct CharacterPantsIntroView: View {
   var body: some View {
-    Text("CharacterPantsIntroView")
+    styledText("탱강이")
+    
+    styledText("탱강이님, 반갑습니다!\n두런이를 꾸미러 가볼까요?")
+  }
+}
 
 // 동일한 속성의 텍스트를 함수로 사용
 private extension CharacterPantsIntroView {
