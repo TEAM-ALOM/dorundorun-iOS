@@ -19,6 +19,9 @@ struct CharacterPantsIntroView: View {
 
   var body: some View {
     VStack {
+      Spacer()
+        .frame(height: 137)
+      
       styledText(nickname)
         .padding(.bottom, 48)
       
@@ -27,12 +30,14 @@ struct CharacterPantsIntroView: View {
         .padding(.bottom, 72)
       
       styledText(currentGuideText)
+      
+      Spacer()
     }
     .onAppear() {
       Task {
-        try? await Task.sleep(nanoseconds: 2_000_000_000)
+        try? await Task.sleep(nanoseconds: 4_000_000_000)
         withAnimation {
-          
+          currentGuideText = OnboardingGuideMessage.selectPants.text
         }
       }
     }
@@ -50,5 +55,5 @@ private extension CharacterPantsIntroView {
 }
 
 #Preview {
-  CharacterPantsIntroView()
+  CharacterPantsIntroView(nickname: "탱강이")
 }
