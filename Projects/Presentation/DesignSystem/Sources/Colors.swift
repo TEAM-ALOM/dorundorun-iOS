@@ -17,4 +17,5 @@ public extension Color {
     static let nutral500 = DesignSystemAsset.Colors.nutral500.swiftUIColor
     static let nutral600 = DesignSystemAsset.Colors.nutral600.swiftUIColor
     static let nutralWhite = DesignSystemAsset.Colors.nutralWhite.swiftUIColor
+    static let nutralBlack = DesignSystemAsset.Colors.nutralBlack.swiftUIColor
 }
