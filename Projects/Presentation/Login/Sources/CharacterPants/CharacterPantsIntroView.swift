@@ -12,6 +12,9 @@ struct CharacterPantsIntroView: View {
   var body: some View {
     styledText("탱강이")
     
+    Image(asset: DesignSystemAsset.Icons.onboardingCharacter217)
+      .frame(width: 217, height: 217)
+    
     styledText("탱강이님, 반갑습니다!\n두런이를 꾸미러 가볼까요?")
   }
 }
