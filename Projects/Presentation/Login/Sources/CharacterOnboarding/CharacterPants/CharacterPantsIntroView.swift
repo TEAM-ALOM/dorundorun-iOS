@@ -9,16 +9,24 @@ import SwiftUI
 import DesignSystem
 
 struct CharacterPantsIntroView: View {
+  var nickname: String
+  @State var currentGuideText: String
+  
+  init(nickname: String) {
+    self.nickname = nickname
+    self.currentGuideText = OnboardingGuideMessage.introduction(nickname: nickname).text
+  }
+
   var body: some View {
     VStack {
-      styledText("탱강이")
+      styledText(nickname)
         .padding(.bottom, 48)
       
       Image(asset: DesignSystemAsset.Icons.onboardingCharacter217)
         .frame(width: 217, height: 217)
         .padding(.bottom, 72)
       
-      styledText("탱강이님, 반갑습니다!\n두런이를 꾸미러 가볼까요?")
+      styledText(currentGuideText)
     }
     .onAppear() {
       Task {
