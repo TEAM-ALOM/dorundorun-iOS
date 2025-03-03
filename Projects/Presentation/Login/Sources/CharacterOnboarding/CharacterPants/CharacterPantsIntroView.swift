@@ -10,11 +10,12 @@ import DesignSystem
 
 struct CharacterPantsIntroView: View {
   var nickname: String
-  @State var currentGuideText: String
+  @StateObject private var messageManager: OnboardingGuideMessageManager
+  @State private var task: Task<Void, Never>?
   
-  init(nickname: String) {
+  init(nickname: String = "탱강이") {
     self.nickname = nickname
-    self.currentGuideText = OnboardingGuideMessage.introduction(nickname: nickname).text
+    _messageManager = StateObject(wrappedValue: OnboardingGuideMessageManager(guideMessage: .introduction(nickname: nickname)))
   }
 
   var body: some View {
@@ -29,17 +30,17 @@ struct CharacterPantsIntroView: View {
         .frame(width: 217, height: 217)
         .padding(.bottom, 72)
       
-      styledText(currentGuideText)
+      styledText(messageManager.guideMessage.text)
       
       Spacer()
     }
     .onAppear() {
-      Task {
-        try? await Task.sleep(nanoseconds: 4_000_000_000)
-        withAnimation {
-          currentGuideText = OnboardingGuideMessage.selectPants.text
-        }
+      task = Task {
+        await messageManager.updateOnboardingMessage(after: 4, message: .selectPants)
       }
+    }
+    .onDisappear {
+        task?.cancel()
     }
   }
 }
