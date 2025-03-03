@@ -23,8 +23,13 @@ struct NicknameValidator {
   
   private func containsSpecialCharacter(_ nickname: String) -> Bool {
     let pattern = "^[a-zA-Z0-9가-힣]+$"
-    let regex = try! NSRegularExpression(pattern: pattern)
-    return regex.firstMatch(in: nickname, range: NSRange(location: 0, length: nickname.utf16.count)) == nil
+    do {
+      let regex = try NSRegularExpression(pattern: pattern)
+      return regex.firstMatch(in: nickname, range: NSRange(location: 0, length: nickname.utf16.count)) == nil
+    } catch {
+      print("정규식 생성 중 오류 발생: \(error)")
+      return true
+    }
   }
 }
 
