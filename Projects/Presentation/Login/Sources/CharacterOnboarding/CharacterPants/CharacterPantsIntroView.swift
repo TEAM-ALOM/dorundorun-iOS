@@ -10,14 +10,24 @@ import DesignSystem
 
 struct CharacterPantsIntroView: View {
   var body: some View {
-    styledText("탱강이")
-      .padding(.bottom, 48)
-    
-    Image(asset: DesignSystemAsset.Icons.onboardingCharacter217)
-      .frame(width: 217, height: 217)
-      .padding(.bottom, 72)
-    
-    styledText("탱강이님, 반갑습니다!\n두런이를 꾸미러 가볼까요?")
+    VStack {
+      styledText("탱강이")
+        .padding(.bottom, 48)
+      
+      Image(asset: DesignSystemAsset.Icons.onboardingCharacter217)
+        .frame(width: 217, height: 217)
+        .padding(.bottom, 72)
+      
+      styledText("탱강이님, 반갑습니다!\n두런이를 꾸미러 가볼까요?")
+    }
+    .onAppear() {
+      Task {
+        try? await Task.sleep(nanoseconds: 2_000_000_000)
+        withAnimation {
+          
+        }
+      }
+    }
   }
 }
 
