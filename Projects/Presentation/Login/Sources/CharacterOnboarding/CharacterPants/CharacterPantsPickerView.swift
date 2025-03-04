@@ -32,8 +32,20 @@ struct CharacterPantsPickerView: View {
     Spacer()
       .frame(height: 48)
     
-    Rectangle()
-      .frame(width: .infinity, height: 406)
+    ZStack {
+      Rectangle()
+        .fill(Color.white)
+        .frame(width: .infinity, height: 406)
+        .clipShape(
+          .rect(
+            topLeadingRadius: 30,
+            bottomLeadingRadius: 0,
+            bottomTrailingRadius: 0,
+            topTrailingRadius: 30
+          )
+        )
+        .shadow(color: Color(red: 0.0, green: 0.0, blue: 0.0, opacity: 0.12), radius: 10, y: -4)
+    }
   }
 }
 
