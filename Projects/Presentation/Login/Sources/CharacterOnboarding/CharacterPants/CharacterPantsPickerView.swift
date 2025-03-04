@@ -103,7 +103,7 @@ extension CharacterPantsPickerView {
       Button {
         selectedIndex = index
       } label: {
-        Image(asset: DesignSystemAsset.Icons.clothOnboardingOff88)
+        Image(asset: DesignSystemAsset.Icons.off88)
           .frame(width: 88, height: 88)
           .shadow(color: selectedIndex == index ? Color.black.opacity(0.15) : Color.clear, radius: 7, x: 0, y: 0)
       }
