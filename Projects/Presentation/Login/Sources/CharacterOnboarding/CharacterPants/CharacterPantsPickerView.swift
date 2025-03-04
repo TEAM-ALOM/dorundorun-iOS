@@ -13,6 +13,8 @@ struct CharacterPantsPickerView: View {
     Text("탱강이")
       .jalnan(.regular, size: 18)
       .foregroundStyle(Color.primary200)
+      BackButton()
+        .padding(.bottom, 13)
     
     Image(asset: DesignSystemAsset.Icons.onboardingCharacter217)
       .scaledToFit()
