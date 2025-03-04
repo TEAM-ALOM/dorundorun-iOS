@@ -9,6 +9,12 @@ import SwiftUI
 import DesignSystem
 
 struct CharacterPantsPickerView: View {
+  let columns: [GridItem] = [
+    GridItem(.flexible(), spacing: 18),
+    GridItem(.flexible(), spacing: 18),
+    GridItem(.flexible(), spacing: 0)
+  ]
+  
   var body: some View {
     VStack {
       Button {
@@ -46,10 +52,36 @@ struct CharacterPantsPickerView: View {
         )
         .shadow(color: Color(red: 0.0, green: 0.0, blue: 0.0, opacity: 0.12), radius: 10, y: -4)
       
-      Text("바지 색상을 선택해주세요.")
-        .suit(.regular, size: 15)
-        .foregroundStyle(Color.nutral600)
-      
+      VStack(spacing: 0) {
+        Text("바지 색상을 선택해주세요.")
+          .suit(.regular, size: 15)
+          .foregroundStyle(Color.nutral600)
+          .padding(.bottom, 24)
+        
+        Rectangle()
+          .fill(Color.nutral200)
+          .frame(height: 4)
+        
+        Spacer()
+          .frame(height: 24)
+        
+        LazyVGrid(columns: [
+          GridItem(.flexible(), spacing: 18),
+          GridItem(.flexible(), spacing: 18),
+          GridItem(.flexible(), spacing: 0)
+        ], spacing: 8) {
+          ForEach(0..<9, id: \.self) { index in
+            Button {
+              
+            } label: {
+              Image(asset: DesignSystemAsset.Icons.clothOnboardingOff88)
+                .frame(width: 88, height: 88) // 셀 크기 설정
+            }
+          }
+        }
+        .padding(.horizontal, 20)
+      }
+      .frame(width: .infinity, height: 347)
     }
   }
 }
