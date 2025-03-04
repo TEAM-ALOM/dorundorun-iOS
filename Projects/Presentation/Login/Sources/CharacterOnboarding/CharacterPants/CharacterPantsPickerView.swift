@@ -18,12 +18,20 @@ struct CharacterPantsPickerView: View {
   
   var body: some View {
     VStack {
-      Button {
-        // store로 action 전달 필요
-      } label: {
-        BackButton()
-          .padding(.bottom, 13)
+      HStack {
+        Button {
+          // store로 action 전달 필요
+        } label: {
+          BackButton()
+        }
+        
+        Button {
+          // store로 action 전달 필요
+        } label: {
+          CheckButton()
+        }
       }
+      .padding(.bottom, 13)
       
       Text("탱강이")
         .jalnan(.regular, size: 18)
