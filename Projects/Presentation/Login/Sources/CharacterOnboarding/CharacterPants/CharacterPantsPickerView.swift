@@ -9,6 +9,7 @@ import SwiftUI
 import DesignSystem
 
 struct CharacterPantsPickerView: View {
+  @State private var selectedIndex: Int?
   let columns: [GridItem] = [
     GridItem(.flexible(), spacing: 18),
     GridItem(.flexible(), spacing: 18),
@@ -72,11 +73,13 @@ struct CharacterPantsPickerView: View {
         ], spacing: 8) {
           ForEach(0..<9, id: \.self) { index in
             Button {
-              
+              selectedIndex = index
             } label: {
               Image(asset: DesignSystemAsset.Icons.clothOnboardingOff88)
-                .frame(width: 88, height: 88) // 셀 크기 설정
+                .frame(width: 88, height: 88)
+                .shadow(color: selectedIndex == index ? Color.black.opacity(0.15) : Color.clear, radius: 7, x: 0, y: 0)
             }
+            .disabled(selectedIndex == index)
           }
         }
         .padding(.horizontal, 20)
