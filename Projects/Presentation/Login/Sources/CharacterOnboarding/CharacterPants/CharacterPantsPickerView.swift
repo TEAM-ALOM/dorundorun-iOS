@@ -10,7 +10,9 @@ import DesignSystem
 
 struct CharacterPantsPickerView: View {
   var body: some View {
-    Text("CharacterPantsPickerView")
+    Text("탱강이")
+      .jalnan(.regular, size: 18)
+      .foregroundStyle(Color.primary200)
   }
 }
 
