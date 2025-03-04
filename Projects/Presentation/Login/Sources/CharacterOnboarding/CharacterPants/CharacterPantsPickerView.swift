@@ -17,7 +17,7 @@ struct CharacterPantsPickerView: View {
   ]
   
   var body: some View {
-    VStack {
+    VStack(spacing: 0) {
       HStack {
         Button {
           // store로 action 전달 필요
@@ -33,20 +33,29 @@ struct CharacterPantsPickerView: View {
       }
       .padding(.bottom, 13)
       
-      Text("탱강이")
-        .jalnan(.regular, size: 18)
-        .foregroundStyle(Color.primary200)
-        .padding(.bottom, 31)
+      Spacer()
       
-      Image(asset: DesignSystemAsset.Icons.onboardingCharacter217)
-        .scaledToFit()
-        .frame(width: 211, height: 213)
+      VStack(spacing: 0) {
+        Text("탱강이")
+          .jalnan(.regular, size: 18)
+          .foregroundStyle(Color.primary200)
+          .padding(.bottom, 31)
+        
+        Image(asset: DesignSystemAsset.Icons.onboardingCharacter217)
+          .scaledToFit()
+          .frame(width: 211, height: 213)
+      }
+      
+      Spacer()
+      
+      makeClothPicker(selectedIndex: $selectedIndex)
     }
     .ignoresSafeArea()
-    
-    Spacer()
-      .frame(height: 48)
-    
+  }
+}
+
+extension CharacterPantsPickerView {
+  private func makeClothPicker(selectedIndex: Binding<Int?>) -> some View {
     ZStack {
       Rectangle()
         .fill(Color.white)
@@ -66,37 +75,42 @@ struct CharacterPantsPickerView: View {
           .suit(.regular, size: 15)
           .foregroundStyle(Color.nutral600)
           .padding(.bottom, 24)
-        
+          
         Rectangle()
           .fill(Color.nutral200)
           .frame(height: 4)
-        
-        Spacer()
-          .frame(height: 24)
-        
+          .padding(.bottom, 24)
+    
         LazyVGrid(columns: [
           GridItem(.flexible(), spacing: 18),
           GridItem(.flexible(), spacing: 18),
           GridItem(.flexible(), spacing: 0)
         ], spacing: 8) {
           ForEach(0..<9, id: \.self) { index in
-            Button {
-              selectedIndex = index
-            } label: {
-              Image(asset: DesignSystemAsset.Icons.clothOnboardingOff88)
-                .frame(width: 88, height: 88)
-                .shadow(color: selectedIndex == index ? Color.black.opacity(0.15) : Color.clear, radius: 7, x: 0, y: 0)
-            }
-            .disabled(selectedIndex == index)
+            ClothSelectionButton(index: index, selectedIndex: selectedIndex)
           }
         }
         .padding(.horizontal, 20)
       }
-      .frame(width: .infinity, height: 347)
+    }
+  }
+  
+  private struct ClothSelectionButton: View {
+    let index: Int
+    @Binding var selectedIndex: Int?
+    
+    var body: some View {
+      Button {
+        selectedIndex = index
+      } label: {
+        Image(asset: DesignSystemAsset.Icons.clothOnboardingOff88)
+          .frame(width: 88, height: 88)
+          .shadow(color: selectedIndex == index ? Color.black.opacity(0.15) : Color.clear, radius: 7, x: 0, y: 0)
+      }
+      .disabled(selectedIndex == index)
     }
   }
 }
-
 #Preview {
   CharacterPantsPickerView()
 }
