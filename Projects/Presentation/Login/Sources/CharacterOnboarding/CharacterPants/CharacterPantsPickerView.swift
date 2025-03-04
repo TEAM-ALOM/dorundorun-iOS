@@ -45,6 +45,11 @@ struct CharacterPantsPickerView: View {
           )
         )
         .shadow(color: Color(red: 0.0, green: 0.0, blue: 0.0, opacity: 0.12), radius: 10, y: -4)
+      
+      Text("바지 색상을 선택해주세요.")
+        .suit(.regular, size: 15)
+        .foregroundStyle(Color.nutral600)
+      
     }
   }
 }
