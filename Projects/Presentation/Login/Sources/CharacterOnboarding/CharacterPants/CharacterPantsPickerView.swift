@@ -11,8 +11,12 @@ import DesignSystem
 struct CharacterPantsPickerView: View {
   var body: some View {
     VStack {
-      BackButton()
-        .padding(.bottom, 13)
+      Button {
+        // store로 action 전달 필요
+      } label: {
+        BackButton()
+          .padding(.bottom, 13)
+      }
       
       Text("탱강이")
         .jalnan(.regular, size: 18)
