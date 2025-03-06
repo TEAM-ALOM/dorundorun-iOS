@@ -10,7 +10,10 @@ import DesignSystem
 
 struct CharacterBackgroundIntroView: View {
   var body: some View {
-    Text("CharaterBackgroundIntroView")
+    Image(asset: DesignSystemAsset.Icons.onboardingCharacter217)
+      .frame(width: 217, height: 217)
+      .padding(.bottom, 72)
+    
   }
 }
 
