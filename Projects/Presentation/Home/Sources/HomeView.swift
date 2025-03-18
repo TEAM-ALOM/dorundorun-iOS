@@ -11,7 +11,6 @@ import DesignSystem
 struct HomeView: View {
 
   @State private var isRunning = false
-  @State private var userAchievements: String = "유저 업적"
   @State private var userNickname: String = "탱강이"
 //  @State private var userTier: String = "tierImage"
   // 티어 이미지 확정 및 추가되면 수정할 부분
@@ -30,16 +29,6 @@ struct HomeView: View {
           Spacer()
         }
         .padding(.bottom, 23)
-        
-        Text(userAchievements)
-          .suit(.medium, size: 10)
-          .foregroundStyle(Color.nutral600)
-          .frame(width: 118, height: 36)
-          .background(
-              Rectangle()
-                .foregroundStyle(Color.nutral100)
-          )
-          .padding(.bottom, 9)
         
         HStack {
           Rectangle()
