@@ -8,18 +8,7 @@
 import SwiftUI
 
 struct CustomTabView: View {
-  public enum Tab {
-      case home
-      case doodleRun
-      case market
-      case myPage
-    }
-    
-    @Binding var selectedTab: Tab
-    
-    public init(selectedTab: Binding<Tab>) {
-      self._selectedTab = selectedTab
-    }
+  @Binding var selectedTab: Tab
   
   var body: some View {
     VStack(spacing: 0){
