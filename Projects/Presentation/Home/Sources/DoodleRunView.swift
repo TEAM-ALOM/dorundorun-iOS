@@ -13,7 +13,7 @@ struct doodleRunView: View {
       NavigationBarView()
       
       Text("두들런 화면")
-       .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
   }
 }

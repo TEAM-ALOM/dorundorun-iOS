@@ -15,7 +15,7 @@ class RunningViewModel: ObservableObject {
     self.goalDistance = goalDistance
     self.currentDistance = currentDistance
   }
-
+  
   func updateRunningDistance(newDistance: Double) {
     withAnimation {
       self.currentDistance = min(newDistance, goalDistance) // 최대 목표치 이상으로 증가 방지

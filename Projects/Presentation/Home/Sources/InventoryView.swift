@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct InventoryView: View {
-    var body: some View {
-      Text("창고 화면")
+  var body: some View {
+    Text("창고 화면")
       .frame(maxWidth: .infinity, maxHeight: .infinity)
-    }
+  }
 }
 
 #Preview {

@@ -11,7 +11,7 @@ struct ButtonView: View {
   let icon: Image
   let title: String
   let isSelected: Bool
-              
+  
   var body: some View {
     VStack {
       icon

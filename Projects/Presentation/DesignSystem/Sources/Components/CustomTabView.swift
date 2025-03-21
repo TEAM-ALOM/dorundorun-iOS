@@ -9,17 +9,17 @@ import SwiftUI
 
 public struct CustomTabView: View {
   public enum Tab {
-     case home
-     case doodleRun
-     case market
-     case myPage
-   }
-   
-   @Binding var selectedTab: Tab
-   
-   public init(selectedTab: Binding<Tab>) {
-     self._selectedTab = selectedTab
-   }
+    case home
+    case doodleRun
+    case market
+    case myPage
+  }
+  
+  @Binding var selectedTab: Tab
+  
+  public init(selectedTab: Binding<Tab>) {
+    self._selectedTab = selectedTab
+  }
   
   public var body: some View {
     VStack(spacing: 0){
@@ -36,7 +36,7 @@ public struct CustomTabView: View {
             isSelected: selectedTab == .home
           )
         }
-
+        
         Spacer()
         Button(action: {selectedTab = .doodleRun}){
           ButtonView(
@@ -45,7 +45,7 @@ public struct CustomTabView: View {
             isSelected: selectedTab == .doodleRun
           )
         }
-                                              
+        
         Spacer()
         Button(action: {selectedTab = .market}){
           ButtonView(
@@ -54,7 +54,7 @@ public struct CustomTabView: View {
             isSelected: selectedTab == .market
           )
         }
-                                              
+        
         Spacer()
         Button(action: {selectedTab = .myPage}){
           ButtonView(
