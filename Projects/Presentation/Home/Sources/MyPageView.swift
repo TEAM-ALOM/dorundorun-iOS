@@ -10,7 +10,7 @@ import SwiftUI
 struct myPageView: View {
   var body: some View {
     VStack {
-      TopBarView()
+      NavigationView()
       
       Text("마이페이지 화면")
         .frame(maxWidth: .infinity, maxHeight: .infinity)
