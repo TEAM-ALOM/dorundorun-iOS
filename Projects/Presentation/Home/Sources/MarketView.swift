@@ -10,7 +10,7 @@ import SwiftUI
 struct marketView: View {
   var body: some View {
     VStack {
-      NavigationView()
+      NavigationBarView()
       
       Text("마켓 화면")
         .frame(maxWidth: .infinity, maxHeight: .infinity)

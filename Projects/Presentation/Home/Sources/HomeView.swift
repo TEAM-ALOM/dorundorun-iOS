@@ -17,7 +17,7 @@ struct HomeView: View {
   
     var body: some View {
       VStack {
-        NavigationView()
+        NavigationBarView()
         
         HStack() {
           Rectangle()

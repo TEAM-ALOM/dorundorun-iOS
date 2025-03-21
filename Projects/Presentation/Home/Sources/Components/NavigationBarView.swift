@@ -8,7 +8,7 @@
 import SwiftUI
 import DesignSystem
 
-struct NavigationView: View {
+struct NavigationBarView: View {
   
   @State private var userCoin: String = "380"
   
@@ -46,5 +46,5 @@ struct NavigationView: View {
 }
 
 #Preview {
-    NavigationView()
+    NavigationBarView()
 }

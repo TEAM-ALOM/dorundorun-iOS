@@ -10,7 +10,7 @@ import SwiftUI
 struct doodleRunView: View {
   var body: some View {
     VStack {
-      NavigationView()
+      NavigationBarView()
       
       Text("두들런 화면")
        .frame(maxWidth: .infinity, maxHeight: .infinity)
