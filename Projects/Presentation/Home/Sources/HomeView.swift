@@ -73,6 +73,8 @@ struct HomeView: View {
         .suit(.medium, size: 10)
         .foregroundStyle(Color.nutral600)
         .padding(.bottom, 32)
+      
+      Spacer()
     }
   }
 }
