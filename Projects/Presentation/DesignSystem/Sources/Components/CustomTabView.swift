@@ -7,10 +7,21 @@
 
 import SwiftUI
 
-struct CustomTabView: View {
+public struct CustomTabView: View {
+  public enum Tab {
+    case home
+    case doodleRun
+    case market
+    case myPage
+  }
+  
   @Binding var selectedTab: Tab
   
-  var body: some View {
+  public init(selectedTab: Binding<Tab>) {
+    self._selectedTab = selectedTab
+  }
+  
+  public var body: some View {
     VStack(spacing: 0){
       Rectangle()
         .frame(height: 4)
@@ -20,34 +31,34 @@ struct CustomTabView: View {
       HStack{
         Button(action: {selectedTab = .home}){
           ButtonView(
-            imageName: "home-30",
+            icon: DesignSystemAsset.Icons.home30.swiftUIImage,
             title: "홈",
             isSelected: selectedTab == .home
           )
         }
-
+        
         Spacer()
         Button(action: {selectedTab = .doodleRun}){
           ButtonView(
-            imageName: "run-30",
+            icon: DesignSystemAsset.Icons.run30.swiftUIImage,
             title: "두들런",
             isSelected: selectedTab == .doodleRun
           )
         }
-                                              
+        
         Spacer()
         Button(action: {selectedTab = .market}){
           ButtonView(
-            imageName: "store-30",
+            icon: DesignSystemAsset.Icons.store30.swiftUIImage,
             title: "마켓",
             isSelected: selectedTab == .market
           )
         }
-                                              
+        
         Spacer()
         Button(action: {selectedTab = .myPage}){
           ButtonView(
-            imageName: "mypage-30",
+            icon: DesignSystemAsset.Icons.mypage30.swiftUIImage,
             title: "마이",
             isSelected: selectedTab == .myPage
           )

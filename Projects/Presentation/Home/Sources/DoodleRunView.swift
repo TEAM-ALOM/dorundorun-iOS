@@ -8,10 +8,14 @@
 import SwiftUI
 
 struct doodleRunView: View {
-    var body: some View {
-        Text("두들런 화면")
+  var body: some View {
+    VStack {
+      NavigationBarView()
+      
+      Text("두들런 화면")
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
+  }
 }
 
 #Preview {
