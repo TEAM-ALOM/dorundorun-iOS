@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CustomTabView: View {
+public struct CustomTabView: View {
   public enum Tab {
      case home
      case doodleRun
@@ -21,7 +21,7 @@ struct CustomTabView: View {
      self._selectedTab = selectedTab
    }
   
-  var body: some View {
+  public var body: some View {
     VStack(spacing: 0){
       Rectangle()
         .frame(height: 4)
