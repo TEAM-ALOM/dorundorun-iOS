@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import DesignSystem
 
 enum Tab {
   case home
