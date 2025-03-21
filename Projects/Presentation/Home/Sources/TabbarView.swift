@@ -16,7 +16,7 @@ enum Tab {
 
 struct TabbarView: View {
   
-  @State var seletedTab: Tab = .home
+  @State var seletedTab: CustomTabView.Tab = .home
   
   var body: some View {
       GeometryReader { geometry in
